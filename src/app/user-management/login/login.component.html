@@ -1,0 +1,120 @@
+<ngx-ui-loader fgsColor="#ff9900" fgsType="three-strings" pbColor="#ff9900" bgsColor="red" text="Loading..." textColor="#ffffff"></ngx-ui-loader>
+    
+    <head>
+        <meta charset="utf-8" />
+        <title>Log In | Take Responsibility! Together we can curb the spread of the COVID19.</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="Contact Trace App | Take Responsibility! Together we can curb the spread of the COVID19." name="description" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    </head>
+
+    <body class="auth-fluid-pages pb-0">
+
+        <div class="auth-fluid">
+            <!--Auth fluid left content -->
+            <div class="auth-fluid-form-box">
+                <div class="align-items-center d-flex h-100">
+                    <div class="card-body">
+
+                        <!-- Logo -->
+                        <div class="auth-brand text-center text-lg-left">
+                            <div class="auth-logo">
+                                <a href="index.html" class="logo logo-dark text-center">
+                                    <span class="logo-lg">
+                                        <img src="./../../assets/images/contacttrace_logo_light.png" alt="" width="200" height="42">
+                                    </span>
+                                </a>
+            
+                                <a href="index.html" class="logo logo-light text-center">
+                                    <span class="logo-lg">
+                                        <img src="./../../assets/images/contacttrace_logo_light.png" alt="" width="200" height="42">
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- title-->
+                        <p class="text-white mb-4">Enter email address and password to access account.</p>
+
+                        <!-- form -->
+                        <form [formGroup]="form" (ngSubmit)="Login()">
+                            <div class="form-group">
+                                <label for="emailaddress" class="text-white-50">Email address</label>
+                                
+                                <input class="form-control" type="email" formControlName="email" id="email" [ngClass]="{'is-invalid':submitted && f.email.errors}" type="email" required="" placeholder="Enter your email">
+                                
+                                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                    <div *ngIf="f.email.errors.required">this field is required</div>
+                                    <div *ngIf="f.email.errors.email">please enter a valid email address</div>
+                                 </div>
+
+                            </div>
+                            <div class="form-group">
+                                <a routerLink="/public-user/forgot-password" class="text-white float-right"><small>Forgot your password?</small></a>
+                                <label for="password" class="text-white-50">Password</label>
+                                <div class="input-group input-group-merge">
+                                    
+                                    <input type="password" id="password" class="form-control" formControlName="password" placeholder="Enter your password" [ngClass]="{'is-invalid':submitted && f.password.errors}">
+                                    <div id="password-eye" (click)="toggleBar()" class="input-group-append" data-password="{toggle}">
+                                        <div class="input-group-text">
+                                            <span class="password-eye"></span>
+                                        </div>
+                                    </div>
+                                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                        <div *ngIf="f.password.errors.required">this field is required</div>
+                                     </div> 
+                                </div>
+                            </div>
+                            
+                            <div class="form-group mb-3">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="checkbox-signin">
+                                    <label class="custom-control-label text-white-50" for="checkbox-signin">Remember me</label>
+                                </div>
+                            </div>
+                            <div class="form-group mb-0 text-center">
+                                <button class="btn btn-primary btn-block">Log In </button>
+                            </div>
+                            
+                        </form>
+                        <!-- end form-->
+
+                        <!-- Footer-->
+                        <footer class="footer footer-alt">
+                            <p class="text-white-50">Don't have an account? <a routerLink="/public-user/register" class="text-white ml-1"><b>Sign Up</b></a></p>
+                        </footer>
+
+                    </div> <!-- end .card-body -->
+                </div> <!-- end .align-items-center.d-flex.h-100-->
+            </div>
+            <!-- end auth-fluid-form-box-->
+
+            <!-- Auth fluid right content -->
+            <div class="auth-fluid-right text-center">
+				<div class="hero-graphics">
+                <div class="graphic graphic-3" data-aos="fade-up">
+
+                    <ng-lottie [options]="options"  width="800px" height="800px" (animationCreated)="animationCreated($event)">
+
+                    </ng-lottie>
+                    <!-- <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_wv4mTG.json"
+                        background="transparent" speed=".9" style="width: 800px; height: 800px;" loop autoplay>
+                    </lottie-player> -->
+                </div>
+            </div>
+                <div class="auth-user-testimonial">
+                    <h3 style="color: chocolate; opacity: .6; font-weight: 700;">Play your part! Let's combat the corona virus.</h3>
+                </div> <!-- end auth-user-testimonial-->
+            </div>
+            <!-- end Auth fluid right content -->
+        </div>
+        <!-- end auth-fluid-->
+
+        <!-- Vendor js -->
+        <script src="./../../assets/js/vendor.min.js"></script>
+
+        <!-- App js -->
+        <script src="./../../assets/js/app.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+        
+    </body>

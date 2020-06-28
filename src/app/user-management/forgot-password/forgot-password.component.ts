@@ -53,7 +53,10 @@ export class ForgotPasswordComponent implements OnInit {
       let d = <any>data;
       if(d.error == false){
        // this.toaster.Success(d.message);  
+       console.log(d.message)
         this.toaster.success("Please Login to your email and click on the link to reset your password") ;
+        this.form.reset();
+        this.submitted = false;
        
      }else{
        this.toaster.error(d.message);

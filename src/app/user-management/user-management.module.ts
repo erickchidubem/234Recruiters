@@ -9,6 +9,7 @@ import { LottieModule } from 'ngx-lottie';
 
 import { RegisterComponent } from './register/register.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 
 
@@ -17,6 +18,7 @@ const routes: Routes = [
     { path:'login', component : LoginComponent },
     { path: 'register', component : RegisterComponent},
     { path: 'forgot-password', component : ForgotPasswordComponent},
+    { path: 'password-reset/:id/:date/:date2/:datediff', component : ResetPasswordComponent}
     // { path : 'service-call/:id', component:ServiceTicketComponent},
     // { path : 'delivery-note/:id/:salesid', component : DeliveryTicketComponent}
     
@@ -44,6 +46,7 @@ const routes: Routes = [
     LoginComponent,
     RegisterComponent,
     ForgotPasswordComponent,
+    ResetPasswordComponent,
 ],
 
 })

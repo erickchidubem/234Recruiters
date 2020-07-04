@@ -33,41 +33,15 @@ import { FormsModule,ReactiveFormsModule }   from '@angular/forms';
       RouterModule,
       CommonModule, 
       ReactiveFormsModule,FormsModule,PasswordStrengthMeterModule,
-    //   NgxUiLoaderModule,
-    //   NgbModule,
-    //   SweetAlert2Module.forRoot(),
-    //   CdkTableModule,
-    //   OwlDateTimeModule, OwlNativeDateTimeModule,
-    //   ToastrModule.forRoot(),
-    //   SelectModule
-      
-     // HttpClientModule,HttpModule
     ],
     exports : [
-        // LeadContactComponent,
-        // LeadSalesComponent, 
-        // LeadSalesComponentComponent, 
-        // ServiceCallsComponent,
-        // AllContractInfoComponent,
-        // LeadFunnelChartComponent,
-        // SalesTrendLineChartComponent,
-        // SalesQuickFlashComponent,
-
-        // MonthlySalesAgainstTargetComponent,
-        // SalesDashboardComponent,
-        CommonModule, ReactiveFormsModule,FormsModule,PasswordStrengthMeterModule,
-        //NgxUiLoaderModule,NgbModule,CdkTableModule,OwlDateTimeModule, OwlNativeDateTimeModule,
-        //SelectModule,
-       // HttpClientModule,HttpModule,
        
+        CommonModule, ReactiveFormsModule,FormsModule,PasswordStrengthMeterModule,
+
     ],
     declarations: [
-    //    LeadContactComponent,  LeadSalesComponent, 
-    //    LeadSalesComponentComponent, ServiceCallsComponent,
-    //     AllContractInfoComponent, LeadFunnelChartComponent, 
-    //     SalesTrendLineChartComponent, SalesQuickFlashComponent, MonthlySalesAgainstTargetComponent, 
-    //     SalesDashboardComponent,
-  ],
+
+    ],
   
   })
   export class SharedModule { }

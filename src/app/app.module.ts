@@ -8,6 +8,7 @@ import { ToastrModule } from 'ngx-toastr';
 import {HttpModule} from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule }   from '@angular/forms';
+import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 
 import { GlobalErrorHandlerService } from './shared/services/global-error-handler';
 import { Constants } from './shared/services/constants';
@@ -22,6 +23,7 @@ import { DatePipe } from '@angular/common';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    GooglePlaceModule,
    // HttpModule,
     HttpClientModule,FormsModule,ReactiveFormsModule,
     BrowserAnimationsModule, // required animations module

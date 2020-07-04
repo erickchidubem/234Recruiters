@@ -3,10 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { FormsModule,ReactiveFormsModule }   from '@angular/forms';
 //import {SharedModule} from '../shared/shared.module';
-import { LoginComponent } from './login/login.component';
 import { CommonModule } from '@angular/common';
 import { LottieModule } from 'ngx-lottie';
-
+import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';

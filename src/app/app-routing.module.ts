@@ -1,27 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
-
+import {BodyContentComponent} from './shared/loggedin-layout/body-content/body-content.component';
+import { InternalAuthGuard } from './shared/auth-guards/internal-auth-guard';
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
 const routes: Routes = [
   
   {path : '' , redirectTo: '/public-user/login', pathMatch:'full' },
   {path : 'public-user',loadChildren: () => import('./user-management/user-management.module').then(m => m.UserMangementModule)},
-
-  // {path : 'home', component:LoginComponent},
-  // {path : 'login', component:LoginComponent},
-  // {path : 'reset-password', component : ResetPasswordComponent},
-  // {path : 'password-reset/:id/:date/:date2/:datediff', component : PasswordResetComponent},
-  // {path : 'access', component:BodyContentComponent, canActivate:[InternalAuthGuard], loadChildren : './logged-in/logged-in.module#LoggedInModule'},
- 
-  // {path : 'ticket', loadChildren : './tickets/tickets.module#TicketsModule'}, 
-  //{ path: 'error', loadChildren: './error-pages/error.module#ErrorModule' },
- // { path : '**', redirectTo : '/error/400'},
+  {path : 'access', component:BodyContentComponent, canActivate:[InternalAuthGuard], loadChildren : ()=> import('./logged-in/logged-in.module').then(m=>m.LoggedInModule)},
+  
   
 ];
 
 @NgModule({
   imports: [
                 RouterModule.forRoot(routes, {useHash:true}),
+                NgxUiLoaderModule,
                 // FormsModule,
                 // ReactiveFormsModule,
                 // BrowserModule,
@@ -31,6 +25,7 @@ const routes: Routes = [
   ],
   exports: [  
     RouterModule,
+    NgxUiLoaderModule,
     // FormsModule,
     // ReactiveFormsModule,
     // NgxUiLoaderModule,
@@ -39,7 +34,7 @@ const routes: Routes = [
  
   declarations :[
     // LoginComponent,
-    // BodyContentComponent,
+     BodyContentComponent,
     // HeaderComponent,
     // FooterComponent,
     // PrimarySidebarComponent,

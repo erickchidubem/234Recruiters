@@ -1,0 +1,106 @@
+
+     <!-- start page title -->
+     <div class="row">
+        <div class="col-12">
+            <div class="page-title-box">
+                <div class="page-title-right">
+                    <!-- <form class="form-inline">
+                        <div class="form-group">
+                            <div class="input-group input-group-sm">
+                                <input type="text" class="form-control border-0 shadow" id="dash-daterange">
+                                <div class="input-group-append">
+                                    <span class="input-group-text bg-blue border-blue text-white">
+                                        <i class="mdi mdi-calendar-range"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="javascript: void(0);" class="btn btn-blue btn-sm ml-2">
+                            <i class="mdi mdi-autorenew"></i>
+                        </a>
+                        <a href="javascript: void(0);" class="btn btn-blue btn-sm ml-1">
+                            <i class="mdi mdi-filter-variant"></i>
+                        </a>
+                    </form> -->
+                </div>
+                <h4 class="page-title">Create Entity Location</h4>
+            </div>
+        </div>
+    </div>     
+    <!-- end page title --> 
+
+    <div class="row">
+        <div class="col-lg-12">
+
+            <div class="card-box">
+                <p class="text-danger text-right font-14 m-b-20">
+                    All fields are required*
+                </p>
+
+                    <form [formGroup]="form" (ngSubmit)="submit()" class="parsley-examples">
+                    <div class="form-group mb-3">
+                                    <label for="example-select">Select State</label>
+                                    <select class="form-control" id="stateId" formControlName="stateId" [ngClass]="{'is-invalid':submitted && f.stateId.errors}">
+                                        <option>-- --</option>
+                                        <option>Administrator</option>
+                                        <option>NCDC Administrator</option>
+                                        <option>Notifications Manager</option>
+                                    </select>
+                                    <div *ngIf="submitted && f.stateId.errors" class="invalid-feedback">
+                                        <div *ngIf="f.stateId.errors.required">this field is required</div>
+                                     </div>
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="example-select">Select LGA</label>
+                                    <select class="form-control" id="lgaId" formControlName="lgaId" [ngClass]="{'is-invalid':submitted && f.lgaId.errors}">
+                                        <option>-- --</option>
+                                        <option>Administrator</option>
+                                        <option>NCDC Administrator</option>
+                                        <option>Notifications Manager</option>
+                                    </select>
+                                    <div *ngIf="submitted && f.lgaId.errors" class="invalid-feedback">
+                                        <div *ngIf="f.lgaId.errors.required">this field is required</div>
+                                     </div>
+                                </div>
+                    <div class="form-group">
+                        <label for="userName">Location/Branch Name<span class="text-danger">*</span></label>
+                        <input type="text" name="location_name" parsley-trigger="change" required
+                               placeholder="Enter location/branch name" class="form-control" id="location_name" 
+                               formControlName="location_name" [ngClass]="{'is-invalid':submitted && f.location_name.errors}">
+                               <div *ngIf="submitted && f.location_name.errors" class="invalid-feedback">
+                                <div *ngIf="f.location_name.errors.required">this field is required</div>
+                             </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="emailAddress">Location Address<span class="text-danger">*</span></label>
+                        <input type="text" name="location" parsley-trigger="change" required
+                        ngx-google-places-autocomplete [options]="{types: [],componentRestrictions: { country: 'NG' }}" #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"
+                               placeholder="Enter Location full address" class="form-control" id="myaddress"
+                               formControlName="myaddress" [ngClass]="{'is-invalid':submitted && f.myaddress.errors}" >
+                               <div *ngIf="submitted && f.myaddress.errors" class="invalid-feedback">
+                                <div *ngIf="f.myaddress.errors.required">this field is required</div>
+                             </div>
+                    </div>
+                   
+                    <div class="form-group text-right m-b-0">
+                        <button class="btn btn-primary waves-effect waves-light" >
+                            Submit
+                        </button>
+                        
+                    </div>
+
+                </form>
+            </div> <!-- end card-box -->
+        </div>
+        <!-- end col -->
+
+         <!-- end col -->
+    </div>
+    <!-- end row-->
+
+    
+    <!-- end row -->
+
+    
+    <!-- end row -->

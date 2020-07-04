@@ -5,11 +5,12 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
 import {Location} from '@angular/common';
 import { ContextService } from "./context.service";
 import { Constants } from "./constants";
+import {JwtHelperService} from '@auth0/angular-jwt'
 declare var $:any;
 
 @Injectable()
 export class Utils {
-
+    jwtHelper = new JwtHelperService();
     constructor(private Spinner : NgxUiLoaderService,private router:Router,
         private context : ContextService,private constant : Constants,
         public location : Location, private toaster : ToastrService ){
@@ -17,16 +18,28 @@ export class Utils {
     }
 
 
+    getToken(){
+         return this.constant.GetToken();
+    }
+    getUserFromToken(){
+        if(localStorage.getItem("token")!= null){
+               let token =  atob(atob(atob(atob(localStorage.getItem("token")))));
+               let value = <any>this.jwtHelper.decodeToken(token);
+               return value.context.user[0];
+
+        }else{
+            return null;
+        }
+   }
+
+    
+
+
     goBack(){
         this.location.back();
     }
 
-    Logout(){  
-        localStorage.removeItem('token');
-        localStorage.clear();
-        this.router.navigate(['/']);
-      
-    }
+    
 
     removeArray(arr, value){
         return arr.filter(function(ele){

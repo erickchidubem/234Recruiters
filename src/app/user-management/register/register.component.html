@@ -46,7 +46,7 @@
                                 <input class="form-control" type="text" id="entityname"
                                 formControlName="entityname" [ngClass]="{'is-invalid':submitted && f.entityname.errors}"
                                 placeholder="Enter name of entity" required>
-
+ 
                                 <div *ngIf="submitted && f.entityname.errors" class="invalid-feedback">
                                     <div *ngIf="f.entityname.errors.required">this field is required</div>
                                  </div>

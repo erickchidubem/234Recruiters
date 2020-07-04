@@ -5,7 +5,11 @@ export class Constants{
    public readonly apiUrl = Constants.getAPI_URL(); 
  
    GetToken(){
-       return localStorage.getItem('token');
+              if(localStorage.getItem("token")!= null){
+                      return atob(atob(atob(atob(localStorage.getItem("token")))));
+                }else{
+                  return null;
+                }
    }
 
     GetAPIKEY(){

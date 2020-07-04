@@ -34,6 +34,7 @@
                         </div>
 
                         <!-- title-->
+                    <ng-container *ngIf="!otpPart">
                         <p class="text-white mb-4">Enter email address and password to access account.</p>
 
                         <!-- form -->
@@ -79,6 +80,36 @@
                         </form>
                         <!-- end form-->
 
+                    </ng-container>
+
+                    <ng-container *ngIf="otpPart">
+                        <p class="text-white mb-4">Enter OTP Value</p>
+
+                        <!-- form -->
+                        <form [formGroup]="otpForm" (ngSubmit)="validateOtp()">
+                           
+                            <div class="form-group">
+                                <a routerLink="/public-user/forgot-password" class="text-white float-right"><small>RESEND OTP</small></a>
+                                <label for="password" class="text-white-50">Enter OTP</label>
+                                <div class="input-group input-group-merge">
+                                    
+                                    <input type="text" id="otp" class="form-control" formControlName="otp" placeholder="Enter OTP" [ngClass]="{'is-invalid':submitted && f1.otp.errors}">
+                                   
+                                    <div *ngIf="submitted && f1.otp.errors" class="invalid-feedback">
+                                        <div *ngIf="f1.otp.errors.required">this field is required</div>
+                                     </div> 
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="form-group mb-0 text-center">
+                                <button class="btn btn-primary btn-block">Validate OTP </button>
+                            </div>
+                            
+                        </form>
+                        <!-- end form-->
+
+                    </ng-container>
                         <!-- Footer-->
                         <footer class="footer footer-alt">
                             <p class="text-white-50">Don't have an account? <a routerLink="/public-user/register" class="text-white ml-1"><b>Sign Up</b></a></p>

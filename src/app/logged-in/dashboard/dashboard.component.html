@@ -1,1 +1,8 @@
-<app-dashboard-general-admin></app-dashboard-general-admin>
+
+<ng-container *ngIf="viewEntityDashboard">
+<app-dashboard-entity></app-dashboard-entity>
+</ng-container>
+
+<ng-container *ngIf="!viewEntityDashboard">
+    <app-dashboard-general-admin></app-dashboard-general-admin>
+</ng-container>

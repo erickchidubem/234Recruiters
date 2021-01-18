@@ -1,19 +1,17 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { GooglePlaceDirective } from 'ngx-google-places-autocomplete';
-import { Address } from 'cluster';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Utils } from 'src/app/shared/services/utils';
-import { ContextService } from 'src/app/shared/services/context.service';
-import { ToastrService } from 'ngx-toastr';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { GooglePlaceDirective } from 'ngx-google-places-autocomplete';
+import { ToastrService } from 'ngx-toastr';
+import { ContextService } from 'src/app/shared/services/context.service';
+import { Utils } from 'src/app/shared/services/utils';
 
 @Component({
-  selector: 'app-create-entity-location',
-  templateUrl: './create-entity-location.component.html',
-  styleUrls: ['./create-entity-location.component.css']
+  selector: 'app-create-test-centers',
+  templateUrl: './create-test-centers.component.html',
+  styleUrls: ['./create-test-centers.component.css']
 })
-export class CreateEntityLocationComponent implements OnInit {
-
+export class CreateTestCentersComponent implements OnInit {
   constructor(private fb : FormBuilder, private utils : Utils, private context : ContextService,
     private router : Router, private toaster : ToastrService) { }
 
@@ -77,7 +75,7 @@ export class CreateEntityLocationComponent implements OnInit {
         this.form.patchValue({
           address_id : address.id,
           place_id : address.place_id,
-          address_component : JSON.stringify(address.address_components),
+          address_component : JSON.stringify(address.address_components).toString(),
           address_name : address.name,
           formatted_address : address.formatted_address,
           address_url: address.url
@@ -97,7 +95,7 @@ export class CreateEntityLocationComponent implements OnInit {
   
     let formData = JSON.stringify(this.form.value);
     console.log(formData)
-    this.context.postWithToken(formData,'location/createlocation').
+    this.context.postWithToken(formData,'location/createtestcenters').
                     subscribe((response:Response)=>{ 
                               this.utils.StopSpinner();                        
                               let data = <any>response;
@@ -131,3 +129,5 @@ export class CreateEntityLocationComponent implements OnInit {
 
 
 }
+
+ 

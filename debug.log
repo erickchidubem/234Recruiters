@@ -180,3 +180,4 @@
 [0702/121759.368:ERROR:process_reader_win.cc(151)] SuspendThread: Access is denied. (0x5)
 [0702/121759.368:ERROR:process_reader_win.cc(151)] SuspendThread: Access is denied. (0x5)
 [0702/121759.368:ERROR:exception_snapshot_win.cc(98)] thread ID 14772 not found in process
+[0816/150022.689:ERROR:settings.cc(320)] Settings magic is not 1129342067

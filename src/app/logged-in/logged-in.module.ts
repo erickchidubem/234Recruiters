@@ -11,17 +11,31 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardGeneralAdminComponent } from './dashboard/dashboard-general-admin/dashboard-general-admin.component';
 import { DashboardIndividualComponent } from './dashboard/dashboard-individual/dashboard-individual.component';
 import { CreateEntityLocationComponent } from './create-entity-location/create-entity-location.component';
-
-
+import { ViewMyEntityLocationsComponent } from './view-my-entity-locations/view-my-entity-locations.component';
+import { AnQrcodeModule } from 'an-qrcode';
+import { ChartsModule } from 'ng2-charts';
+import { DashboardEntityComponent } from './dashboard/dashboard-entity/dashboard-entity.component';
+import { TraceHistoryComponent } from './trace-history/trace-history.component';
+import { NgSelect2Module } from 'ng-select2';
+import { EntityExposedLocationsComponent } from './entity-exposed-locations/entity-exposed-locations.component';
+import { ViewUsersComponent } from './view-users/view-users.component';
+import { CreateTestCentersComponent } from './create-test-centers/create-test-centers.component';
+import { ViewTestCentersComponent } from './view-test-centers/view-test-centers.component';
+import { ViewContactTracedComponent } from './view-contact-traced/view-contact-traced.component';
 
 const routes: Routes = [
     {path : '',component:DashboardComponent},
     {path : 'create-user', component : CreateNewUserComponent},
-    {path : 'create-location', component : CreateEntityLocationComponent}
-
+    {path : 'create-location', component : CreateEntityLocationComponent},
+    {path : 'view-location', component : ViewMyEntityLocationsComponent},
+    {path : 'trace-contact', component : TraceHistoryComponent},
+    {path : 'entity-exposed-location', component : EntityExposedLocationsComponent},
+    {path : 'view-user', component : ViewUsersComponent},
+    {path : 'create-test-centers', component : CreateTestCentersComponent},
+    {path : 'contact-traced/:companyname/:address/:id', component : ViewContactTracedComponent}
     // { path : 'service-call/:id', component:ServiceTicketComponent},
     // { path : 'delivery-note/:id/:salesid', component : DeliveryTicketComponent}
-    
+     
  ]; 
 
  export function playerFactory() {
@@ -31,16 +45,20 @@ const routes: Routes = [
   
   imports: [
    // SharedModule,
+    AnQrcodeModule,
     NgxUiLoaderModule,
     RouterModule.forChild(routes),
     FormsModule,
+    NgSelect2Module,
     ReactiveFormsModule,CommonModule,
     LottieModule.forRoot({ player: playerFactory }),
     GooglePlaceModule,
+    ChartsModule,
+    
   ],
 
   exports : [
-    RouterModule,NgxUiLoaderModule,GooglePlaceModule,
+    RouterModule,NgxUiLoaderModule,GooglePlaceModule,AnQrcodeModule
   ],
  
   declarations: [
@@ -53,7 +71,23 @@ DashboardGeneralAdminComponent,
    
 DashboardIndividualComponent,
    
-CreateEntityLocationComponent],
+CreateEntityLocationComponent,
+   
+ViewMyEntityLocationsComponent,
+   
+DashboardEntityComponent,
+   
+TraceHistoryComponent,
+   
+EntityExposedLocationsComponent,
+   
+ViewUsersComponent,
+   
+CreateTestCentersComponent,
+   
+ViewTestCentersComponent,
+   
+ViewContactTracedComponent],
 
 })
 export class LoggedInModule { }

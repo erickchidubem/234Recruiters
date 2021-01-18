@@ -16,6 +16,7 @@ import { Utils } from './shared/services/utils';
 import { ContextService } from './shared/services/context.service';
 import { DatePipe } from '@angular/common';
 
+//import { Select2Module } from 'ng2-select2';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +25,7 @@ import { DatePipe } from '@angular/common';
     BrowserModule,
     AppRoutingModule,
     GooglePlaceModule,
+    //Select2Module,
    // HttpModule,
     HttpClientModule,FormsModule,ReactiveFormsModule,
     BrowserAnimationsModule, // required animations module

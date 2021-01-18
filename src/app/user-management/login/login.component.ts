@@ -112,11 +112,21 @@ expiretime = new Date().getTime();
                                 console.log(this.otptime)
                                 this.otp = atob(tokendata[1])
                                 this.token = tokendata[0];
-                                this.otpPart = true;
-                                console.log(this.otp)
 
-                                var expire = new Date();
-                                this.expiretime = expire.setMinutes(expire.getMinutes() + 15);
+                                let val = this.utils.convertTokenToData(tokendata[0]);
+                                if(val.userType > 1){
+                                  localStorage.setItem('token', this.token);
+                                  this.toaster.success("Successful login...");
+                                  this.router.navigate(['access/'])
+                                  // this.otpPart = true;
+                                  // console.log(this.otp)
+                                  // var expire = new Date();
+                                  // this.expiretime = expire.setMinutes(expire.getMinutes() + 15);
+                                }else{
+                                    this.toaster.error('This account cannot access this platform because it is an individual account')
+                                }
+                             
+                               
                               }
                                  
                     },

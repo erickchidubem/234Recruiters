@@ -21,6 +21,12 @@ export class Utils {
     getToken(){
          return this.constant.GetToken();
     }
+
+    convertTokenToData(input){
+        let token =  atob(atob(atob(atob(input))));
+        let value = <any>this.jwtHelper.decodeToken(token);
+        return value.context.user[0];
+    }
     getUserFromToken(){
         if(localStorage.getItem("token")!= null){
                let token =  atob(atob(atob(atob(localStorage.getItem("token")))));

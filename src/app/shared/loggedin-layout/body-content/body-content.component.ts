@@ -16,15 +16,20 @@ export class BodyContentComponent implements OnInit {
  
 
   name : string;
+  traceContact : Boolean = false;
   ngOnInit(): void {
       console.log(this.utils.getUserFromToken());
 
       if(this.utils.getUserFromToken().userType == 2){
           this.name = this.utils.getUserFromToken().entityName;
+          this.traceContact = false;
 
       }else{
           this.name = this.utils.getUserFromToken().firstName + " "+this.utils.getUserFromToken().lastName;
-      }
+          this.traceContact = true;
+      } 
+
+      console.log(this.traceContact)
   }
 
   logout(){

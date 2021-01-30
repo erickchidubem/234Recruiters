@@ -22,6 +22,8 @@ import { ViewUsersComponent } from './view-users/view-users.component';
 import { CreateTestCentersComponent } from './create-test-centers/create-test-centers.component';
 import { ViewTestCentersComponent } from './view-test-centers/view-test-centers.component';
 import { ViewContactTracedComponent } from './view-contact-traced/view-contact-traced.component';
+import { ViewAllEntitiesComponent } from './view-all-entities/view-all-entities.component';
+import { ViewAllLocationsCountComponent } from './view-all-locations-count/view-all-locations-count.component';
 
 const routes: Routes = [
     {path : '',component:DashboardComponent},
@@ -32,11 +34,14 @@ const routes: Routes = [
     {path : 'entity-exposed-location', component : EntityExposedLocationsComponent},
     {path : 'view-user', component : ViewUsersComponent},
     {path : 'create-test-centers', component : CreateTestCentersComponent},
-    {path : 'contact-traced/:companyname/:address/:id', component : ViewContactTracedComponent}
+    {path : 'view-test-centers', component : ViewTestCentersComponent},
+    {path : 'contact-traced/:companyname/:address/:id', component : ViewContactTracedComponent},
+    {path : 'view-entities', component : ViewAllEntitiesComponent},
+    {path : 'view-location-counts', component : ViewAllLocationsCountComponent}
     // { path : 'service-call/:id', component:ServiceTicketComponent},
     // { path : 'delivery-note/:id/:salesid', component : DeliveryTicketComponent}
      
- ]; 
+ ];  
 
  export function playerFactory() {
   return import('lottie-web');
@@ -87,7 +92,11 @@ CreateTestCentersComponent,
    
 ViewTestCentersComponent,
    
-ViewContactTracedComponent],
+ViewContactTracedComponent,
+   
+ViewAllEntitiesComponent,
+   
+ViewAllLocationsCountComponent],
 
 })
 export class LoggedInModule { }

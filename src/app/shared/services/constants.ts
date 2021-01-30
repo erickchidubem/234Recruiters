@@ -1,6 +1,6 @@
 import { HttpHeaders } from "@angular/common/http";
 export class Constants{
-   public static  deployMode = 0; // 0 -> dev, 1-> online test, 2 -> live
+   public static  deployMode = 1; // 0 -> dev, 1-> online test, 2 -> live
    public  DM = Constants.deployMode;
    public readonly apiUrl = Constants.getAPI_URL(); 
  

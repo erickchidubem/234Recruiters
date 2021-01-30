@@ -3,9 +3,9 @@
     <div class="col-12">
         <div class="page-title-box">
             <div class="page-title-right">
-              <a routerLink="/access/create-user" class="btn btn-primary">Create Users</a>
+              <!-- <a routerLink="/access/create-user" class="btn btn-primary">Create Users</a> -->
             </div>
-            <h4 class="page-title">Manage Users</h4>
+            <h4 class="page-title">Manage Contacts</h4>
         </div>
     </div>
 </div>     
@@ -18,14 +18,14 @@
                     <div class="col-lg-8">
                         <form>
                             <div class="form-group col-xl-6">
-                                <select class="custom-select" id="status-select" (change)="getAllMyEntities($event.target.value)">
+                                <!-- <select class="custom-select" id="status-select" (change)="getAllMyEntities($event.target.value)">
                                     <option value="0">-select all-</option>
                                     <ng-container *ngFor="let c of lgastates" >
                                     <ng-container *ngIf="c.id == 7">
                                         <option value="{{c.id}}">{{c.userTypeName}}</option>
                                     </ng-container>
                                     </ng-container>		
-                                </select>
+                                </select> -->
                             </div>
                         </form>
                     </div>
@@ -40,24 +40,28 @@
             <table class="table table table-nowrap table-hover mb-0 table-responsive">
                         <thead>
                             <tr>
-                                <th width="15%">NAME</th>
-                                <th width="20%">EMAIL</th>
-                                <th width="30%">USER TYPE</th>
-                                <th width="30%">PHONE</th>
-                                <th width="5%">View</th>
+                                <th width="25%">Name</th>
+                                <th width="20%">Email</th>
+                                <th width="15%">Phone</th>
+                                <th width="15%">Last Exposed</th>
+                                <th>Status</th>
+                                <th width="5%">Exposure</th>
+                               
                             </tr>
                         </thead>
                         <tbody>
 
 
                             <tr *ngFor="let c of entityLocations">
-                                <td *ngIf="c.userType == 2">{{c.entityName}}</td>
-                                <td *ngIf="c.userType != 2">{{c.firstName}} {{c.lastName}}</td>
+                             
+                                <td>{{c.firstName}} {{c.lastName}}</td>
                                 <td> {{c.email}}</td>
-                                <td>{{c.userTypeName}}</td>
                                 <td>{{c.phone}}</td>
-                                <td><a href="javascript:void(0);" (click)="PopulateData(c)" data-toggle="modal"  data-target="#closeorder"  class="text-body font-weight-normal">Click To View</a></td>
-                              
+                               
+                                <td>{{c.LastExposedDate}}</td>
+                                <td *ngIf="c.healthStatus == 1"><span class="badge bg-soft-danger text-danger">In Quarantine</span></td>
+                                <td *ngIf="c.healthStatus == 0"><span class="badge bg-soft-success text-success">Healthy</span></td>
+                                <td>{{c.exposed}}</td>
                             </tr>
                            
                             

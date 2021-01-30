@@ -24,6 +24,8 @@ import { ViewTestCentersComponent } from './view-test-centers/view-test-centers.
 import { ViewContactTracedComponent } from './view-contact-traced/view-contact-traced.component';
 import { ViewAllEntitiesComponent } from './view-all-entities/view-all-entities.component';
 import { ViewAllLocationsCountComponent } from './view-all-locations-count/view-all-locations-count.component';
+import { ViewIndividualUsersComponent } from './view-individual-users/view-individual-users.component';
+import { ViewExposedIndividualsComponent } from './view-exposed-individuals/view-exposed-individuals.component';
 
 const routes: Routes = [
     {path : '',component:DashboardComponent},
@@ -37,7 +39,9 @@ const routes: Routes = [
     {path : 'view-test-centers', component : ViewTestCentersComponent},
     {path : 'contact-traced/:companyname/:address/:id', component : ViewContactTracedComponent},
     {path : 'view-entities', component : ViewAllEntitiesComponent},
-    {path : 'view-location-counts', component : ViewAllLocationsCountComponent}
+    {path : 'view-location-counts', component : ViewAllLocationsCountComponent},
+    {path : 'view-individuals', component:ViewIndividualUsersComponent},
+    {path : 'view-individuals-exposed', component:ViewExposedIndividualsComponent}
     // { path : 'service-call/:id', component:ServiceTicketComponent},
     // { path : 'delivery-note/:id/:salesid', component : DeliveryTicketComponent}
      
@@ -96,7 +100,11 @@ ViewContactTracedComponent,
    
 ViewAllEntitiesComponent,
    
-ViewAllLocationsCountComponent],
+ViewAllLocationsCountComponent,
+   
+ViewIndividualUsersComponent,
+   
+ViewExposedIndividualsComponent],
 
 })
 export class LoggedInModule { }

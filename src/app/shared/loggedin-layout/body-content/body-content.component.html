@@ -271,7 +271,7 @@
                                               <a routerLink="/access/trace-contact">Contact Trace Requests</a>
                                           </li>
                                           <li>
-                                            <a routerLink="/access/create-test-centers">View Test Centers</a>
+                                            <a routerLink="/access/view-test-centers">View Test Centers</a>
                                         
                                         </li>
 
@@ -284,7 +284,47 @@
                                       </ul>
                                   </div>
                               </li>
-
+                            
+                            
+                              <li  [hidden]="!traceContact">
+                                <a href="#sidebarEntities" data-toggle="collapse">
+                                      <i class="fas fa-building"></i>
+                                      <span> Entities </span>
+                                      <span class="menu-arrow"></span>
+                                  </a>
+                                <div class="collapse" id="sidebarEntities">
+                                      <ul class="nav-second-level">
+                                          <li>
+                                              <!-- <span class="badge badge-danger badge-pill float-right">3</span> -->
+                                              <a routerLink="/access/view-entities">Manage Entities</a>
+                                            
+                                          </li>
+                                          <li>
+                                              <a routerLink="/access/view-location-counts">View Locations</a>
+                                          </li>
+                                          <li>
+                                              <a routerLink="/access/trace-contact">Exposed Locations</a>
+                                          </li>
+                                      </ul>
+                                  </div>
+                              </li>
+                              <li  [hidden]="!traceContact">
+                                <a href="#sidebarIndividuals" data-toggle="collapse">
+                                      <i class="fas fa-users"></i>
+                                      <span> Contacts </span>
+                                      <span class="menu-arrow"></span>
+                                  </a>
+                                <div class="collapse" id="sidebarIndividuals">
+                                      <ul class="nav-second-level">
+                                          <li>
+                                              <a routerLink="/access/view-individuals">Manage Contacts</a>
+                                          </li>
+                                          <li>
+                                              <a routerLink="/access/view-individuals-exposed">Exposed Contacts</a>
+                                          </li>
+                                      </ul>
+                                  </div>
+                              </li>
                             <!-- <li [hidden]="!traceContact">
                                 <a href="#sidebarAdmin" data-toggle="collapse">
                                         <i class="fas fa-users"></i>

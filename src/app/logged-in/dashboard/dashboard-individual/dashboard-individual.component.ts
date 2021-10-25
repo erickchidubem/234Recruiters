@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Utils } from 'src/app/shared/services/utils';
+import { ContextService } from 'src/app/shared/services/context.service';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-dashboard-individual',
   templateUrl: './dashboard-individual.component.html',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardIndividualComponent implements OnInit {
 
-  constructor() { }
+  constructor(public utils : Utils,private context : ContextService,
+    private toaster : ToastrService) { }
 
+  userName : string = "";
   ngOnInit(): void {
+    this.userName = this.utils.getUserFromToken().fullname;
   }
+
+  recentApplications : any =[];
+  getAllTracedSummary(entityId="0",stateId="0"){
+    this.utils.StartSpinner();
+      this.context.getWithToken('','trace/getdashboardinfo/'+entityId+'/'+stateId).
+      subscribe( data => {
+        let d = <any>data;
+        this.recentApplications = d.data;
+        console.log(this.recentApplications)
+        this.utils.StopSpinner();
+      }); 
+  }
+
 
 }

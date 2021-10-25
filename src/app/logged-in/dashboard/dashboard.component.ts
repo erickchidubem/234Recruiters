@@ -10,13 +10,15 @@ export class DashboardComponent implements OnInit {
 
   constructor(public utils : Utils) { }
 
-  viewEntityDashboard : boolean = false;
+  viewCandidateDashboard : boolean = false;
+  viewAdminDashboard : boolean = false;
   ngOnInit(): void {
-    if(this.utils.getUserFromToken().userType == 2){
-     this.viewEntityDashboard = true;
+    console.log(this.utils.getUserFromToken().userrole)
+    if(this.utils.getUserFromToken().userrole == "EMPLOYER"){
+     this.viewAdminDashboard = true;
 
-  }else{
-      this.viewEntityDashboard = false;
+  }else if(this.utils.getUserFromToken().userrole == "CANDIDATE"){
+      this.viewCandidateDashboard = true;
   }
   }
 

@@ -17,7 +17,8 @@ declare var $ : any;
 })
 export class RegisterComponent implements OnInit {
   options: AnimationOptions = {
-    path: 'https://assets10.lottiefiles.com/packages/lf20_wv4mTG.json',
+    path: 'https://assets10.lottiefiles.com/private_files/lf30_eaigvcxb.json',
+    
   };
 
   animationCreated(animationItem: AnimationItem): void {
@@ -39,7 +40,8 @@ export class RegisterComponent implements OnInit {
   
     generateForm(){
       this.form = this.fb.group({
-        entityname : ["", [Validators.required]],
+        roleName : ["CANDIDATE"],
+        phoneNumber : ["", [Validators.required]],
         email : ["", [Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
         password : ["", [Validators.required,PasswordStrengthValidator]], 
         password2 : ["", [Validators.required]],
@@ -93,10 +95,20 @@ export class RegisterComponent implements OnInit {
             this.addMenu(value);
           }
     }
-    
-    
   }
     
+  toggleRoleName(value){
+    if(value=="EMPLOYER"){
+      $("#employer").addClass("btn-style-seven");
+      $("#candidate").removeClass("btn-style-seven"); 
+      $("#candidate").addClass("btn-style-four"); 
+    }else{
+      $("#candidate").addClass("btn-style-seven");
+      $("#employer").removeClass("btn-style-seven"); 
+      $("#employer").addClass("btn-style-four");
+    }
+    this.form.patchValue({roleName : value})
+  }
   
     Register(){
   
@@ -107,29 +119,31 @@ export class RegisterComponent implements OnInit {
     
       let formData = JSON.stringify(this.form.value);
       console.log(formData)
-      this.context.postWithNoToken(formData,'account/registerentity').
+      this.context.postWithNoToken(formData,'Account/RegisterUser').
                       subscribe((response:Response)=>{ 
                                 this.utils.StopSpinner();                        
                                 let data = <any>response;
                                 console.log(data)
-                                if(data.error){
-                                 
-                                  this.toaster.error(data.message)
                                 
+                               
+
+                                if(data.responseCode =="99"){
+                                  this.toaster.error(data.responseFriendlyMessage)
                                 }else{
-                                  this.form.reset();
                                   this.submitted = false;
-                                  this.toaster.success(data.message);
+                                  this.form.reset();
+                                  this.toaster.success(data.responseFriendlyMessage);
+                                                               
                                 }
                                    
                       },
                       err => {
-                                  this.utils.StopSpinner();                              
-                                  console.log('Error Message : '+err.message);
-                                  console.log('Error : '+err.status);
-                                  console.log (err.error)
-                                  this.toaster.error("Error")
-                                 
+                            this.utils.StopSpinner();                              
+                            console.log('Error Message : '+err.message);
+                            console.log('Error : '+err.status);
+                            console.log (err.error)
+                            this.toaster.error(err.error.responseFriendlyMessage)
+                                    
                       }
                     );               
          }

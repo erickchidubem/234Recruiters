@@ -23,15 +23,16 @@ export class Utils {
     }
 
     convertTokenToData(input){
-        let token =  atob(atob(atob(atob(input))));
+        let token =  input;//atob(atob(atob(atob(input))));
         let value = <any>this.jwtHelper.decodeToken(token);
-        return value.context.user[0];
+        console.log(value);
+        return value;//value.context.user[0];
     }
     getUserFromToken(){
         if(localStorage.getItem("token")!= null){
-               let token =  atob(atob(atob(atob(localStorage.getItem("token")))));
+               let token = this.getToken() //atob(atob(atob(atob(localStorage.getItem("token")))));
                let value = <any>this.jwtHelper.decodeToken(token);
-               return value.context.user[0];
+               return value;
 
         }else{
             return null;

@@ -91,42 +91,18 @@ expiretime = new Date().getTime();
     this.utils.StartSpinner();
     let formData = JSON.stringify(this.form.value);
     console.log(formData)
-    this.context.postWithNoToken(formData,'account/adminlogin').
+    this.context.postWithNoToken(formData,'Account/Login').
                     subscribe((response:Response)=>{ 
                               this.utils.StopSpinner();                        
                               let data = <any>response;
                               console.log(data)
-                              if(data.error){
-                               
-                                this.toaster.error(data.message)
-                              
+                              if(data.responseCode =="99"){
+                                this.toaster.error(data.responseFriendlyMessage)
                               }else{
                                 this.submitted = false;
-                                this.otpForm.reset();
-                                let data = <any>response;
-                                let tokendata = data.data.split("-BDmLmoVVNgw2233404oVVI-")
-                                console.log(data.data)
-                                console.log(tokendata)
-                                this.otpTrials = 0;
-                                this.otptime = atob(atob(tokendata[2]))
-                                console.log(this.otptime)
-                                this.otp = atob(tokendata[1])
-                                this.token = tokendata[0];
-
-                                let val = this.utils.convertTokenToData(tokendata[0]);
-                                if(val.userType > 1){
-                                  localStorage.setItem('token', this.token);
-                                  this.toaster.success("Successful login...");
-                                  this.router.navigate(['access/'])
-                                  // this.otpPart = true;
-                                  // console.log(this.otp)
-                                  // var expire = new Date();
-                                  // this.expiretime = expire.setMinutes(expire.getMinutes() + 15);
-                                }else{
-                                    this.toaster.error('This account cannot access this platform because it is an individual account')
-                                }
-                             
-                               
+                                localStorage.setItem('token', data.token);
+                                this.toaster.success("Successful login...");
+                                this.router.navigate(['access/'])                               
                               }
                                  
                     },
@@ -135,8 +111,7 @@ expiretime = new Date().getTime();
                                 console.log('Error Message : '+err.message);
                                 console.log('Error : '+err.status);
                                 console.log (err.error)
-                                this.toaster.error("Error")
-                               
+                                this.toaster.error(err.error.responseFriendlyMessage)         
                     }
                   );               
        }

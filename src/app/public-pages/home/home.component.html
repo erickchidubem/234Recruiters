@@ -1,0 +1,421 @@
+<!-- Banner Section-->
+<section class="banner-section-nine" style="background-image: url(../../../assets/images/background/7.jpg);">
+	<div class="auto-container">
+		<div class="cotnent-box">
+			<div class="title-box wow fadeInUp" data-wow-delay='300ms'>
+				<h3>15,000+ Browse Jobs</h3>
+				<div class="text">Find Jobs, Employment & Career Opportunities</div>
+            </div>
+            
+			<!-- Job Search Form -->
+			<div class="job-search-form wow fadeInUp" data-wow-delay='600ms'>
+				<form method="post" action="https://creativelayers.net/themes/superio/job-list-v10.html">
+					<div class="row">
+						<!-- Form Group -->
+						<div class="form-group col-lg-4 col-md-12 col-sm-12">
+							<label>What job are you looking for?</label> <span class="icon flaticon-search-1"></span>
+							<input type="text" name="field_name" placeholder="Job title, keywords, or company"> </div>
+						<!-- Form Group -->
+						<div class="form-group col-lg-3 col-md-12 col-sm-12 location">
+							<label>Where?</label> <span class="icon flaticon-map-locator"></span>
+							<input type="text" name="field_name" placeholder="City or postcode"> </div>
+						<!-- Form Group -->
+						<div class="form-group col-lg-3 col-md-12 col-sm-12 category">
+							<label>Categories</label> <span class="icon flaticon-briefcase"></span>
+							<select class="chosen-select">
+								<option value="">All Categories</option>
+								<option value="44">Accounting / Finance</option>
+								<option value="106">Automotive Jobs</option>
+								<option value="46">Customer</option>
+								<option value="48">Design</option>
+								<option value="47">Development</option>
+								<option value="45">Health and Care</option>
+								<option value="105">Marketing</option>
+								<option value="107">Project Management</option>
+							</select>
+						</div>
+						<!-- Form Group -->
+						<div class="form-group col-lg-2 col-md-12 col-sm-12 text-right">
+							<button type="submit" class="theme-btn btn-style-two">Find Jobs</button>
+						</div>
+					</div>
+				</form>
+			</div>
+            <!-- Job Search Form -->
+            
+			<!-- Fun Fact Section -->
+			<div class="fun-fact-section">
+				<div class="row">
+					<!--Column-->
+					<div class="counter-column col-lg-3 col-md-6 col-sm-12 wow fadeInUp">
+						<div class="count-box"><span class="count-text" data-speed="3000" data-stop="97216">0</span></div>
+						<h4 class="counter-title">Jobs</h4> </div>
+					<!--Column-->
+					<div class="counter-column col-lg-3 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="400ms">
+						<div class="count-box"><span class="count-text" data-speed="3000" data-stop="4782">0</span></div>
+						<h4 class="counter-title">Members</h4> </div>
+					<!--Column-->
+					<div class="counter-column col-lg-3 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="800ms">
+						<div class="count-box"><span class="count-text" data-speed="3000" data-stop="5322">0</span></div>
+						<h4 class="counter-title">Resume</h4> </div>
+					<!--Column-->
+					<div class="counter-column col-lg-3 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="1200ms">
+						<div class="count-box"><span class="count-text" data-speed="3000" data-stop="6329">0</span></div>
+						<h4 class="counter-title">Company</h4> </div>
+				</div>
+			</div>
+            <!-- Fun Fact Section -->
+            
+		</div>
+	</div>
+</section>
+<!-- End Banner Section-->
+
+<!-- Work Section -->
+<section class="work-section">
+	<div class="auto-container">
+		<div class="sec-title text-center">
+			<h2>How It Works?</h2>
+			<div class="text">Job for anyone, anywhere</div>
+		</div>
+		<div class="row wow fadeInUp">
+			<!-- Work Block -->
+			<div class="work-block col-lg-4 col-md-6 col-sm-12">
+				<div class="inner-box">
+					<figure class="image"><img src="../../../assets/images/resource/work-1.png" alt=""></figure>
+					<h5>Free Resume Assessments</h5>
+					<p>Employers on average spend 31 seconds scanning resumes to identify potential matches.</p>
+				</div>
+			</div>
+			<!-- Work Block -->
+			<div class="work-block col-lg-4 col-md-6 col-sm-12">
+				<div class="inner-box">
+					<figure class="image"><img src="../../../assets/images/resource/work-2.png" alt=""></figure>
+					<h5>Job Fit Scoring</h5>
+					<p>Employers on average spend 31 seconds scanning resumes to identify potential matches.</p>
+				</div>
+			</div>
+			<!-- Work Block -->
+			<div class="work-block col-lg-4 col-md-6 col-sm-12">
+				<div class="inner-box">
+					<figure class="image"><img src="../../../assets/images/resource/work-3.png" alt=""></figure>
+					<h5>Help Every Step of the Way</h5>
+					<p>Employers on average spend 31 seconds scanning resumes to identify potential matches.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End Work Section -->
+
+<!-- Job Section -->
+<section class="job-section-two">
+	<div class="auto-container">
+		<div class="sec-title text-center">
+			<h2>Featured Jobs</h2>
+			<div class="text">Know your worth and find the job that qualify your life</div>
+		</div>
+		<div class="row wow fadeInUp">
+			<!-- Job Block-two -->
+			<div class="job-block-two col-lg-12" *ngFor="let c of jobDetails;let i = index">
+				<div class="inner-box">
+					<div class="content"> <span class="company-logo"><img src="images/resource/company-logo/1-1.png" alt=""></span>
+						<h4><a routerLink="/home/job-single/{{c.id}}">{{c.jobTitle}}</a></h4>
+						<ul class="job-info">
+							<li><span class="icon flaticon-briefcase"></span> {{c.category}}</li>
+							<li><span class="icon flaticon-map-locator"></span> {{c.jobLocation}}</li>
+							<li><span class="icon flaticon-clock-3"></span><!-- 11 hours ago--> {{c.createdDate | date:'EEEE, d, MMMM, yyyy'}}</li>
+							<li><span class="icon flaticon-money"></span>{{utils.getCurrency()}} {{c.salaryRangeFrom | number:'.2'}} - {{utils.getCurrency()}}{{c.salaryRangeTo | number:'.2'}}</li>
+						</ul>
+					</div>
+					<ul class="job-other-info">
+						<li class="privacy">{{c.jobType}}</li>
+						<li *ngIf="c.urgency" class="required">Urgent</li>
+						<li class="time">{{c.jobType}}</li>
+					</ul>
+					<button class="bookmark-btn"><span class="flaticon-bookmark"></span></button>
+				</div>
+			</div>
+		 
+		</div>
+		<div class="btn-box"> <a href="#" class="theme-btn btn-style-one bg-blue"><span class="btn-title">Load More Listing</span></a> </div>
+	</div>
+</section>
+<!-- End Job Section -->
+
+<!-- Registeration Banners -->
+<section class="registeration-banners">
+	<div class="auto-container">
+		<div class="row wow fadeInUp">
+			<!-- Banner Style One -->
+			<div class="banner-style-one col-lg-6 col-md-12 col-sm-12">
+				<div class="inner-box">
+					<div class="content">
+						<h3>Employers</h3>
+						<p>Sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Labore et dolore nostrud exercitation.</p> <a href="#" class="theme-btn btn-style-five">Register Account</a> </div>
+					<figure class="image"><img src="../../../assets/images/resource/employ.png" alt=""></figure>
+				</div>
+			</div>
+			<!-- Banner Style Two -->
+			<div class="banner-style-two col-lg-6 col-md-12 col-sm-12">
+				<div class="inner-box">
+					<div class="content">
+						<h3>Candidate</h3>
+						<p>Sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Labore et dolore nostrud exercitation.</p> <a href="#" class="theme-btn btn-style-five">Register Account</a> </div>
+					<figure class="image"><img src="../../../assets/images/resource/candidate.png" alt=""></figure>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End Registeration Banners -->
+
+<!-- steps Section -->
+<section class="steps-section pt-0">
+	<div class="auto-container">
+		<div class="row">
+			<div class="image-column col-lg-6 col-md-12 col-sm-12">
+				<div class="inner-column">
+					<figure class="image"><img src="../../../assets/images/resource/steps-img.png" alt=""></figure>
+					<!-- Count Employers -->
+					<div class="count-employers wow fadeInUp"> <span class="title">300k+ Employers</span>
+						<figure class="image"><img src="../../../assets/images/resource/multi-peoples.png" alt=""></figure>
+					</div>
+				</div>
+			</div>
+			<div class="content-column col-lg-6 col-md-12 col-sm-12">
+				<div class="inner-column wow fadeInUp">
+					<div class="sec-title">
+						<h2>Find Jobs with 3 easy steps</h2>
+						<div class="text">Sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</div>
+						<ul class="steps-list">
+							<li><span class="count">1</span> Register an account to start</li>
+							<li><span class="count">2</span> Explore over thousands of resumes</li>
+							<li><span class="count">3</span> Find the most suitable candidate</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End Steps Section -->
+
+<!-- Call To Action Two -->
+<section class="call-to-action-two" style="background-image: url(../../../assets/images/background/8.png);">
+	<div class="auto-container wow fadeInUp">
+		<div class="sec-title light text-center">
+			<h2>Make a Difference with Your Online Resume!</h2>
+			<div class="text">Your resume in minutes with JobHunt resume assistant is ready!</div>
+		</div>
+		<div class="btn-box"> <a href="#" class="theme-btn btn-style-three">Create an Account</a> </div>
+	</div>
+</section>
+<!-- End Call To Action -->
+
+<!-- Job Categories -->
+<section class="job-categories">
+	<div class="auto-container">
+		<div class="sec-title text-center">
+			<h2>Popular Job Categories</h2>
+			<div class="text">2020 jobs live - 293 added today.</div>
+		</div>
+		<div class="row wow fadeInUp">
+			<!-- Category Block -->
+			<div class="category-block col-lg-4 col-md-6 col-sm-12">
+				<div class="inner-box">
+					<div class="content"> <span class="icon flaticon-money-1"></span>
+						<h4><a href="#">Accounting / Finance</a></h4>
+						<p>(2 open positions)</p>
+					</div>
+				</div>
+			</div>
+			<!-- Category Block -->
+			<div class="category-block col-lg-4 col-md-6 col-sm-12">
+				<div class="inner-box">
+					<div class="content"> <span class="icon flaticon-promotion"></span>
+						<h4><a href="#">Marketing</a></h4>
+						<p>86 open positions)</p>
+					</div>
+				</div>
+			</div>
+			<!-- Category Block -->
+			<div class="category-block col-lg-4 col-md-6 col-sm-12">
+				<div class="inner-box">
+					<div class="content"> <span class="icon flaticon-vector"></span>
+						<h4><a href="#">Design</a></h4>
+						<p>43 open positions)</p>
+					</div>
+				</div>
+			</div>
+			<!-- Category Block -->
+			<div class="category-block col-lg-4 col-md-6 col-sm-12">
+				<div class="inner-box">
+					<div class="content"> <span class="icon flaticon-web-programming"></span>
+						<h4><a href="#">Development</a></h4>
+						<p>(12 open positions)</p>
+					</div>
+				</div>
+			</div>
+			<!-- Category Block -->
+			<div class="category-block col-lg-4 col-md-6 col-sm-12">
+				<div class="inner-box">
+					<div class="content"> <span class="icon flaticon-headhunting"></span>
+						<h4><a href="#">Human Resource</a></h4>
+						<p>55 open positions)</p>
+					</div>
+				</div>
+			</div>
+			<!-- Category Block -->
+			<div class="category-block col-lg-4 col-md-6 col-sm-12">
+				<div class="inner-box">
+					<div class="content"> <span class="icon flaticon-rocket-ship"></span>
+						<h4><a href="#">Project Management</a></h4>
+						<p>(2 open positions)</p>
+					</div>
+				</div>
+			</div>
+			<!-- Category Block -->
+			<div class="category-block col-lg-4 col-md-6 col-sm-12">
+				<div class="inner-box">
+					<div class="content"> <span class="icon flaticon-support-1"></span>
+						<h4><a href="#">Customer Service</a></h4>
+						<p>(2 open positions)</p>
+					</div>
+				</div>
+			</div>
+			<!-- Category Block -->
+			<div class="category-block col-lg-4 col-md-6 col-sm-12">
+				<div class="inner-box">
+					<div class="content"> <span class="icon flaticon-first-aid-kit-1"></span>
+						<h4><a href="#">Health and Care</a></h4>
+						<p>(25 open positions)</p>
+					</div>
+				</div>
+			</div>
+			<!-- Category Block -->
+			<div class="category-block col-lg-4 col-md-6 col-sm-12">
+				<div class="inner-box">
+					<div class="content"> <span class="icon flaticon-car"></span>
+						<h4><a href="#">Automotive Jobs</a></h4>
+						<p>92 open positions</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End Job Categories -->
+
+<!-- Testimonial Section -->
+<section class="testimonial-section style-two alternate" style="background-image: url(../../../assets/images/background/9.png);">
+	<div class="auto-container">
+		<!-- Sec Title -->
+		<div class="sec-title text-center light">
+			<h2>Testimonials From Our Customers</h2>
+			<div class="text">Lorem ipsum dolor sit amet elit, sed do eiusmod tempor</div>
+		</div>
+		<div class="carousel-outer wow fadeInUp">
+			<!-- Testimonial Carousel -->
+			<div class="testimonial-carousel-three owl-carousel owl-theme default-dots light">
+				<!--Testimonial Block -->
+				<div class="testimonial-block">
+					<div class="inner-box">
+						<h4 class="title">Good theme</h4>
+						<div class="text">Without JobHunt i’d be homeless, they found me a job and got me sorted out quickly with everything! Can’t quite… The Mitech team works really hard to ensure high level of quality</div>
+						<div class="info-box">
+							<div class="thumb"><img src="../../../assets/images/resource/testi-thumb-1.png" alt=""></div>
+							<h4 class="name">Nicole Wells</h4> <span class="designation">Web Developer</span> </div>
+					</div>
+				</div>
+				<!--Testimonial Block -->
+				<div class="testimonial-block">
+					<div class="inner-box">
+						<h4 class="title">Great quality!</h4>
+						<div class="text">Without JobHunt i’d be homeless, they found me a job and got me sorted out quickly with everything! Can’t quite… The Mitech team works really hard to ensure high level of quality</div>
+						<div class="info-box">
+							<div class="thumb"><img src="../../../assets/images/resource/testi-thumb-2.png" alt=""></div>
+							<h4 class="name">Gabriel Nolan</h4> <span class="designation">Consultant</span> </div>
+					</div>
+				</div>
+				<!--Testimonial Block -->
+				<div class="testimonial-block">
+					<div class="inner-box">
+						<h4 class="title">Good theme</h4>
+						<div class="text">Without JobHunt i’d be homeless, they found me a job and got me sorted out quickly with everything! Can’t quite… The Mitech team works really hard to ensure high level of quality</div>
+						<div class="info-box">
+							<div class="thumb"><img src="../../../assets/images/resource/testi-thumb-1.png" alt=""></div>
+							<h4 class="name">Nicole Wells</h4> <span class="designation">Web Developer</span> </div>
+					</div>
+				</div>
+				<!--Testimonial Block -->
+				<div class="testimonial-block">
+					<div class="inner-box">
+						<h4 class="title">Great quality!</h4>
+						<div class="text">Without JobHunt i’d be homeless, they found me a job and got me sorted out quickly with everything! Can’t quite… The Mitech team works really hard to ensure high level of quality</div>
+						<div class="info-box">
+							<div class="thumb"><img src="../../../assets/images/resource/testi-thumb-2.png" alt=""></div>
+							<h4 class="name">Gabriel Nolan</h4> <span class="designation">Consultant</span> </div>
+					</div>
+				</div>
+				<!--Testimonial Block -->
+				<div class="testimonial-block">
+					<div class="inner-box">
+						<h4 class="title">Good theme</h4>
+						<div class="text">Without JobHunt i’d be homeless, they found me a job and got me sorted out quickly with everything! Can’t quite… The Mitech team works really hard to ensure high level of quality</div>
+						<div class="info-box">
+							<div class="thumb"><img src="../../../assets/images/resource/testi-thumb-1.png" alt=""></div>
+							<h4 class="name">Nicole Wells</h4> <span class="designation">Web Developer</span> </div>
+					</div>
+				</div>
+				<!--Testimonial Block -->
+				<div class="testimonial-block">
+					<div class="inner-box">
+						<h4 class="title">Great quality!</h4>
+						<div class="text">Without JobHunt i’d be homeless, they found me a job and got me sorted out quickly with everything! Can’t quite… The Mitech team works really hard to ensure high level of quality</div>
+						<div class="info-box">
+							<div class="thumb"><img src="../../../assets/images/resource/testi-thumb-2.png" alt=""></div>
+							<h4 class="name">Gabriel Nolan</h4> <span class="designation">Consultant</span> </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End Testimonial Section -->
+
+<!-- Fun Fact Section -->
+<div class="fun-fact-section style-two">
+	<div class="auto-container">
+		<div class="row wow fadeInUp">
+			<!--Column-->
+			<div class="counter-column col-lg-4 col-md-6 col-sm-12 wow fadeInUp">
+				<div class="count-box"><span class="count-text" data-speed="3000" data-stop="4">0</span>M</div>
+				<h4 class="counter-title">4 million daily active users</h4> </div>
+			<!--Column-->
+			<div class="counter-column col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="400ms">
+				<div class="count-box"><span class="count-text" data-speed="3000" data-stop="12">0</span>k</div>
+				<h4 class="counter-title">Over 12k open job positions</h4> </div>
+			<!--Column-->
+			<div class="counter-column col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="800ms">
+				<div class="count-box"><span class="count-text" data-speed="3000" data-stop="20">0</span>M</div>
+				<h4 class="counter-title">Over 20 million stories shared</h4> </div>
+		</div>
+	</div>
+</div>
+<!-- Fun Fact Section -->
+
+<!-- Call To Action Three -->
+<section class="call-to-action-three style-two">
+	<div class="auto-container wow fadeInUp">
+		<div class="outer-box">
+			<div class="sec-title light">
+				<h2>Gat a question?</h2>
+				<div class="text">We're here to help. Check out our FAQs, send us an email or call us at 1
+					<br><a href="#">(900) 777-7777.</a></div>
+			</div>
+			<div class="btn-box"> <a href="#" class="theme-btn btn-style-three">Get Started</a> </div>
+		</div>
+	</div>
+</section>
+<!-- End Call To Action -->

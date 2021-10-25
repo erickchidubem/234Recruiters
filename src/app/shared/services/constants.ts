@@ -1,12 +1,13 @@
 import { HttpHeaders } from "@angular/common/http";
 export class Constants{
-   public static  deployMode = 1; // 0 -> dev, 1-> online test, 2 -> live
+   public static  deployMode = 0; // 0 -> dev, 1-> online test, 2 -> live
    public  DM = Constants.deployMode;
    public readonly apiUrl = Constants.getAPI_URL(); 
  
    GetToken(){
               if(localStorage.getItem("token")!= null){
-                      return atob(atob(atob(atob(localStorage.getItem("token")))));
+                    //  return atob(atob(atob(atob(localStorage.getItem("token")))));
+                    return localStorage.getItem('token');  
                 }else{
                   return null;
                 }
@@ -25,7 +26,7 @@ export class Constants{
 
    static getAPI_URL (){
       if(this.deployMode == 0){
-        return "http://localhost:81/contacttraceapi/public/"; // dev
+        return "https://localhost:2599/api/"; // dev
       }else if(this.deployMode == 1){
         return "http://contacttrace.ng/test/api/public/"; // online test server
       }else if(this.deployMode == 2){

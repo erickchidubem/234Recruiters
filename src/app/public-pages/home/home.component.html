@@ -9,29 +9,30 @@
             
 			<!-- Job Search Form -->
 			<div class="job-search-form wow fadeInUp" data-wow-delay='600ms'>
-				<form method="post" action="https://creativelayers.net/themes/superio/job-list-v10.html">
+				<form [formGroup]="form" (ngSubmit)="submit()">
 					<div class="row">
 						<!-- Form Group -->
 						<div class="form-group col-lg-4 col-md-12 col-sm-12">
 							<label>What job are you looking for?</label> <span class="icon flaticon-search-1"></span>
-							<input type="text" name="field_name" placeholder="Job title, keywords, or company"> </div>
+							<input type="text" formControlName="keyword" id="keyword" placeholder="Job title, keywords, or company"> </div>
 						<!-- Form Group -->
 						<div class="form-group col-lg-3 col-md-12 col-sm-12 location">
 							<label>Where?</label> <span class="icon flaticon-map-locator"></span>
-							<input type="text" name="field_name" placeholder="City or postcode"> </div>
+							<!-- <input type="text" name="field_name" placeholder="City or postcode">  -->
+							<select class="chosen-select" formControlName="location" id="location">
+								<option value="-all-">All States</option>
+								<option value="c" *ngFor="let c of states;let i = index">{{c}}</option>
+							
+							</select> 
+						
+						</div>
 						<!-- Form Group -->
 						<div class="form-group col-lg-3 col-md-12 col-sm-12 category">
 							<label>Categories</label> <span class="icon flaticon-briefcase"></span>
-							<select class="chosen-select">
-								<option value="">All Categories</option>
-								<option value="44">Accounting / Finance</option>
-								<option value="106">Automotive Jobs</option>
-								<option value="46">Customer</option>
-								<option value="48">Design</option>
-								<option value="47">Development</option>
-								<option value="45">Health and Care</option>
-								<option value="105">Marketing</option>
-								<option value="107">Project Management</option>
+							<select class="chosen-select" formControlName="category" id="category">
+								<option value="-all-">All Categories</option>
+								<option value="c.id" *ngFor="let c of categories;let i = index">{{c.category}}</option>
+							
 							</select>
 						</div>
 						<!-- Form Group -->
@@ -41,31 +42,6 @@
 					</div>
 				</form>
 			</div>
-            <!-- Job Search Form -->
-            
-			<!-- Fun Fact Section -->
-			<div class="fun-fact-section">
-				<div class="row">
-					<!--Column-->
-					<div class="counter-column col-lg-3 col-md-6 col-sm-12 wow fadeInUp">
-						<div class="count-box"><span class="count-text" data-speed="3000" data-stop="97216">0</span></div>
-						<h4 class="counter-title">Jobs</h4> </div>
-					<!--Column-->
-					<div class="counter-column col-lg-3 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="400ms">
-						<div class="count-box"><span class="count-text" data-speed="3000" data-stop="4782">0</span></div>
-						<h4 class="counter-title">Members</h4> </div>
-					<!--Column-->
-					<div class="counter-column col-lg-3 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="800ms">
-						<div class="count-box"><span class="count-text" data-speed="3000" data-stop="5322">0</span></div>
-						<h4 class="counter-title">Resume</h4> </div>
-					<!--Column-->
-					<div class="counter-column col-lg-3 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="1200ms">
-						<div class="count-box"><span class="count-text" data-speed="3000" data-stop="6329">0</span></div>
-						<h4 class="counter-title">Company</h4> </div>
-				</div>
-			</div>
-            <!-- Fun Fact Section -->
-            
 		</div>
 	</div>
 </section>
@@ -119,7 +95,9 @@
 			<!-- Job Block-two -->
 			<div class="job-block-two col-lg-12" *ngFor="let c of jobDetails;let i = index">
 				<div class="inner-box">
-					<div class="content"> <span class="company-logo"><img src="images/resource/company-logo/1-1.png" alt=""></span>
+					<div class="content"> <span class="company-logo">
+						<!-- <img src="images/resource/company-logo/1-1.png" alt=""> -->
+					</span>
 						<h4><a routerLink="/home/job-single/{{c.id}}">{{c.jobTitle}}</a></h4>
 						<ul class="job-info">
 							<li><span class="icon flaticon-briefcase"></span> {{c.category}}</li>
@@ -129,8 +107,8 @@
 						</ul>
 					</div>
 					<ul class="job-other-info">
-						<li class="privacy">{{c.jobType}}</li>
-						<li *ngIf="c.urgency" class="required">Urgent</li>
+						<!-- <li class="privacy">{{c.jobType}}</li> -->
+						<li *ngIf="c.urgency" class="required">URGENT</li>
 						<li class="time">{{c.jobType}}</li>
 					</ul>
 					<button class="bookmark-btn"><span class="flaticon-bookmark"></span></button>
@@ -152,7 +130,9 @@
 				<div class="inner-box">
 					<div class="content">
 						<h3>Employers</h3>
-						<p>Sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Labore et dolore nostrud exercitation.</p> <a href="#" class="theme-btn btn-style-five">Register Account</a> </div>
+						<p>Sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Labore et dolore nostrud exercitation.</p> 
+						<a routerLink="/public-user/login" class="theme-btn btn-style-five">Register Account</a>
+					 </div>
 					<figure class="image"><img src="../../../assets/images/resource/employ.png" alt=""></figure>
 				</div>
 			</div>
@@ -161,7 +141,7 @@
 				<div class="inner-box">
 					<div class="content">
 						<h3>Candidate</h3>
-						<p>Sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Labore et dolore nostrud exercitation.</p> <a href="#" class="theme-btn btn-style-five">Register Account</a> </div>
+						<p>Sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Labore et dolore nostrud exercitation.</p> <a routerLink="/public-user/login" class="theme-btn btn-style-five">Register Account</a> </div>
 					<figure class="image"><img src="../../../assets/images/resource/candidate.png" alt=""></figure>
 				</div>
 			</div>
@@ -206,9 +186,9 @@
 	<div class="auto-container wow fadeInUp">
 		<div class="sec-title light text-center">
 			<h2>Make a Difference with Your Online Resume!</h2>
-			<div class="text">Your resume in minutes with JobHunt resume assistant is ready!</div>
+			<div class="text">Your resume in minutes with 234Recruiter resume assistant is ready!</div>
 		</div>
-		<div class="btn-box"> <a href="#" class="theme-btn btn-style-three">Create an Account</a> </div>
+		<div class="btn-box"> <a routerLink="/public-user/register" class="theme-btn btn-style-three">Create an Account</a> </div>
 	</div>
 </section>
 <!-- End Call To Action -->

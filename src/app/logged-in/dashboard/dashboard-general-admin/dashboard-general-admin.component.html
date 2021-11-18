@@ -1,413 +1,281 @@
-  <!-- start page title -->
-  <div class="row">
-    <div class="col-12">
-        <div class="page-title-box">
-            <div class="page-title-right">
-                <form class="form-inline">
-                    <div class="form-group">
-                        <div class="input-group input-group-sm">
-                            <input type="text" class="form-control border-0 shadow" id="dash-daterange">
-                            <div class="input-group-append">
-                                <span class="input-group-text bg-blue border-blue text-white">
-                                    <i class="mdi mdi-calendar-range"></i>
-                                </span>
+ <!-- Dashboard -->
+ <section class="user-dashboard">
+    <div class="dashboard-outer">
+        <div class="upper-title-box">
+            <h3>Howdy, Invision!</h3>
+            <div class="text">Ready to jump back in?</div>
+        </div>
+        <div class="row">
+            <div class="ui-block col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                <div class="ui-item">
+                    <div class="left">
+                        <i class="icon flaticon-briefcase"></i>
+                    </div>
+                    <div class="right">
+                        <h4>22</h4>
+                        <p>Posted Jobs</p>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-block col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                <div class="ui-item ui-red">
+                    <div class="left">
+                        <i class="icon la la-file-invoice"></i>
+                    </div>
+                    <div class="right">
+                        <h4>9382</h4>
+                        <p>Application</p>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-block col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                <div class="ui-item ui-yellow">
+                    <div class="left">
+                        <i class="icon la la-comment-o"></i>
+                    </div>
+                    <div class="right">
+                        <h4>74</h4>
+                        <p>Messages</p>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-block col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                <div class="ui-item ui-green">
+                    <div class="left">
+                        <i class="icon la la-bookmark-o"></i>
+                    </div>
+                    <div class="right">
+                        <h4>32</h4>
+                        <p>Shortlist</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            
+            
+            <div class="col-xl-7 col-lg-12">
+                <!-- Graph widget -->
+                <div class="graph-widget ls-widget">
+                    <div class="tabs-box">                        
+                        <div class="widget-title">
+                            <h4>Your Profile Views</h4>
+                            <div class="chosen-outer">
+                                 <!--Tabs Box-->
+                                 <select class="chosen-select">
+                                    <option>Last 6 Months</option>
+                                    <option>Last 12 Months</option>
+                                    <option>Last 16 Months</option>
+                                    <option>Last 24 Months</option>
+                                    <option>Last 5 year</option>
+                                </select>
                             </div>
                         </div>
+
+                        <div class="widget-content">
+                            <canvas id="chart" width="100" height="45"></canvas>
+                        </div>
                     </div>
-                    <a href="javascript: void(0);" class="btn btn-blue btn-sm ml-2">
-                        <i class="mdi mdi-autorenew"></i>
-                    </a>
-                    <a href="javascript: void(0);" class="btn btn-blue btn-sm ml-1">
-                        <i class="mdi mdi-filter-variant"></i>
-                    </a>
-                </form>
+                </div>
             </div>
-            <h4 class="page-title">Dashboard</h4>
+
+            <div class="col-xl-5 col-lg-12">
+                <!-- Notification Widget -->
+                <div class="notification-widget ls-widget">
+                    <div class="widget-title"><h4>Notifications</h4></div>
+                    <div class="widget-content">
+                        <ul class="notification-list">
+                            <li><span class="icon flaticon-briefcase"></span> <strong>Wade Warren</strong> applied for a job <span class="colored">Web Developer</span></li>
+                            <li><span class="icon flaticon-briefcase"></span> <strong>Henry Wilson</strong> applied for a job <span class="colored">Senior Product Designer</span></li>
+                            <li class="success"><span class="icon flaticon-briefcase"></span> <strong>Raul Costa</strong> applied for a job <span class="colored">Product Manager, Risk</span></li>
+                            <li><span class="icon flaticon-briefcase"></span> <strong>Jack Milk</strong> applied for a job <span class="colored">Technical Architect</span></li>
+                            <li class="success"><span class="icon flaticon-briefcase"></span> <strong>Michel Arian</strong> applied for a job <span class="colored">Software Engineer</span></li>
+                            <li><span class="icon flaticon-briefcase"></span> <strong>Ali Tufan</strong> applied for a job <span class="colored">UI Designer</span></li>
+                        </ul>
+                    </div> 
+                </div>
+            </div>
+
+
+            <div class="col-lg-12">
+                <!-- applicants Widget -->
+                <div class="applicants-widget ls-widget">
+                    <div class="widget-title"><h4>Recent Applicants</h4></div>
+                    <div class="widget-content">
+                        <div class="row">
+                            <!-- Candidate block three -->
+                            <div class="candidate-block-three col-lg-6 col-md-12 col-sm-12">
+                                <div class="inner-box">
+                                    <div class="content">
+                                        <figure class="image"><img src="images/resource/candidate-1.png" alt=""></figure>
+                                        <h4 class="name"><a href="#">Darlene Robertson</a></h4>
+                                        <ul class="candidate-info">
+                                            <li class="designation">UI Designer</li>
+                                            <li><span class="icon flaticon-map-locator"></span> London, UK</li>
+                                            <li><span class="icon flaticon-money"></span> $99 / hour</li>
+                                        </ul>
+                                        <ul class="post-tags">
+                                            <li><a href="#">App</a></li>
+                                            <li><a href="#">Design</a></li>
+                                            <li><a href="#">Digital</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="option-box">
+                                        <ul class="option-list">
+                                            <li><button data-text="View Aplication"><span class="la la-eye"></span></button></li>
+                                            <li><button data-text="Approve Aplication"><span class="la la-check"></span></button></li>
+                                            <li><button data-text="Reject Aplication"><span class="la la-times-circle"></span></button></li>
+                                            <li><button data-text="Delete Aplication"><span class="la la-trash"></span></button></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Candidate block three -->
+                            <div class="candidate-block-three col-lg-6 col-md-12 col-sm-12">
+                                <div class="inner-box">
+                                    <div class="content">
+                                        <figure class="image"><img src="images/resource/candidate-2.png" alt=""></figure>
+                                        <h4 class="name"><a href="#">Wade Warren</a></h4>
+                                        <ul class="candidate-info">
+                                            <li class="designation">UI Designer</li>
+                                            <li><span class="icon flaticon-map-locator"></span> London, UK</li>
+                                            <li><span class="icon flaticon-money"></span> $99 / hour</li>
+                                        </ul>
+                                        <ul class="post-tags">
+                                            <li><a href="#">App</a></li>
+                                            <li><a href="#">Design</a></li>
+                                            <li><a href="#">Digital</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="option-box">
+                                        <ul class="option-list">
+                                            <li><button data-text="View Aplication"><span class="la la-eye"></span></button></li>
+                                            <li><button data-text="Approve Aplication"><span class="la la-check"></span></button></li>
+                                            <li><button data-text="Reject Aplication"><span class="la la-times-circle"></span></button></li>
+                                            <li><button data-text="Delete Aplication"><span class="la la-trash"></span></button></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Candidate block three -->
+                            <div class="candidate-block-three col-lg-6 col-md-12 col-sm-12">
+                                <div class="inner-box">
+                                    <div class="content">
+                                        <figure class="image"><img src="images/resource/candidate-3.png" alt=""></figure>
+                                        <h4 class="name"><a href="#">Leslie Alexander</a></h4>
+                                        <ul class="candidate-info">
+                                            <li class="designation">UI Designer</li>
+                                            <li><span class="icon flaticon-map-locator"></span> London, UK</li>
+                                            <li><span class="icon flaticon-money"></span> $99 / hour</li>
+                                        </ul>
+                                        <ul class="post-tags">
+                                            <li><a href="#">App</a></li>
+                                            <li><a href="#">Design</a></li>
+                                            <li><a href="#">Digital</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="option-box">
+                                        <ul class="option-list">
+                                            <li><button data-text="View Aplication"><span class="la la-eye"></span></button></li>
+                                            <li><button data-text="Approve Aplication"><span class="la la-check"></span></button></li>
+                                            <li><button data-text="Reject Aplication"><span class="la la-times-circle"></span></button></li>
+                                            <li><button data-text="Delete Aplication"><span class="la la-trash"></span></button></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Candidate block three -->
+                            <div class="candidate-block-three col-lg-6 col-md-12 col-sm-12">
+                                <div class="inner-box">
+                                    <div class="content">
+                                        <figure class="image"><img src="images/resource/candidate-1.png" alt=""></figure>
+                                        <h4 class="name"><a href="#">Darlene Robertson</a></h4>
+                                        <ul class="candidate-info">
+                                            <li class="designation">UI Designer</li>
+                                            <li><span class="icon flaticon-map-locator"></span> London, UK</li>
+                                            <li><span class="icon flaticon-money"></span> $99 / hour</li>
+                                        </ul>
+                                        <ul class="post-tags">
+                                            <li><a href="#">App</a></li>
+                                            <li><a href="#">Design</a></li>
+                                            <li><a href="#">Digital</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="option-box">
+                                        <ul class="option-list">
+                                            <li><button data-text="View Aplication"><span class="la la-eye"></span></button></li>
+                                            <li><button data-text="Approve Aplication"><span class="la la-check"></span></button></li>
+                                            <li><button data-text="Reject Aplication"><span class="la la-times-circle"></span></button></li>
+                                            <li><button data-text="Delete Aplication"><span class="la la-trash"></span></button></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Candidate block three -->
+                            <div class="candidate-block-three col-lg-6 col-md-12 col-sm-12">
+                                <div class="inner-box">
+                                    <div class="content">
+                                        <figure class="image"><img src="images/resource/candidate-2.png" alt=""></figure>
+                                        <h4 class="name"><a href="#">Wade Warren</a></h4>
+                                        <ul class="candidate-info">
+                                            <li class="designation">UI Designer</li>
+                                            <li><span class="icon flaticon-map-locator"></span> London, UK</li>
+                                            <li><span class="icon flaticon-money"></span> $99 / hour</li>
+                                        </ul>
+                                        <ul class="post-tags">
+                                            <li><a href="#">App</a></li>
+                                            <li><a href="#">Design</a></li>
+                                            <li><a href="#">Digital</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="option-box">
+                                        <ul class="option-list">
+                                            <li><button data-text="View Aplication"><span class="la la-eye"></span></button></li>
+                                            <li><button data-text="Approve Aplication"><span class="la la-check"></span></button></li>
+                                            <li><button data-text="Reject Aplication"><span class="la la-times-circle"></span></button></li>
+                                            <li><button data-text="Delete Aplication"><span class="la la-trash"></span></button></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Candidate block three -->
+                            <div class="candidate-block-three col-lg-6 col-md-12 col-sm-12">
+                                <div class="inner-box">
+                                    <div class="content">
+                                        <figure class="image"><img src="images/resource/candidate-3.png" alt=""></figure>
+                                        <h4 class="name"><a href="#">Leslie Alexander</a></h4>
+                                        <ul class="candidate-info">
+                                            <li class="designation">UI Designer</li>
+                                            <li><span class="icon flaticon-map-locator"></span> London, UK</li>
+                                            <li><span class="icon flaticon-money"></span> $99 / hour</li>
+                                        </ul>
+                                        <ul class="post-tags">
+                                            <li><a href="#">App</a></li>
+                                            <li><a href="#">Design</a></li>
+                                            <li><a href="#">Digital</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="option-box">
+                                        <ul class="option-list">
+                                            <li><button data-text="View Aplication"><span class="la la-eye"></span></button></li>
+                                            <li><button data-text="Approve Aplication"><span class="la la-check"></span></button></li>
+                                            <li><button data-text="Reject Aplication"><span class="la la-times-circle"></span></button></li>
+                                            <li><button data-text="Delete Aplication"><span class="la la-trash"></span></button></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
         </div>
     </div>
-</div>     
-<!-- end page title --> 
-
-<div class="row">
-    <div class="col-md-6 col-xl-3">
-        <div class="widget-rounded-circle card-box">
-            <div class="row">
-                <div class="col-4">
-                    <div class="avatar-lg rounded-circle bg-soft-success border-success border">
-                        <i class="mdi mdi-office-building font-36 avatar-title text-success"></i>
-                    </div>
-                </div>
-                <div class="col-8">
-                    <div class="text-right">
-                        <h3 class="mt-1 text-dark"><span data-plugin="counterup">8,947</span></h3>
-                        <p class="text-muted mb-1 text-truncate">Total Locations</p>
-                    </div>
-                </div>
-            </div> <!-- end row-->
-        </div> <!-- end widget-rounded-circle-->
-    </div> <!-- end col-->
-
-    <div class="col-md-6 col-xl-3">
-        <div class="widget-rounded-circle card-box">
-            <div class="row">
-                <div class="col-4">
-                    <div class="avatar-lg rounded-circle bg-soft-pink border-pink border">
-                        <i class="mdi mdi-home-alert font-36 avatar-title text-pink"></i>
-                    </div>
-                </div>
-                <div class="col-8">
-                    <div class="text-right">
-                        <h3 class="text-dark mt-1"><span data-plugin="counterup">827</span></h3>
-                        <p class="text-muted mb-1 text-truncate">Exposed Locations</p>
-                    </div>
-                </div>
-            </div> <!-- end row-->
-        </div> <!-- end widget-rounded-circle-->
-    </div> <!-- end col-->
-
-    <div class="col-md-6 col-xl-3">
-        <div class="widget-rounded-circle card-box">
-            <div class="row">
-                <div class="col-4">
-                    <div class="avatar-lg rounded-circle bg-soft-success border-success border">
-                        <i class="mdi mdi-human-handsup font-36 avatar-title text-success"></i>
-                    </div>
-                </div>
-                <div class="col-8">
-                    <div class="text-right">
-                        <h3 class="text-dark mt-1"><span data-plugin="counterup">23</span>M</h3>
-                        <p class="text-muted mb-1 text-truncate">Individuals</p>
-                    </div>
-                </div>
-            </div> <!-- end row-->
-        </div> <!-- end widget-rounded-circle-->
-    </div> <!-- end col-->
-
-    <div class="col-md-6 col-xl-3">
-        <div class="widget-rounded-circle card-box">
-            <div class="row">
-                <div class="col-4">
-                    <div class="avatar-lg rounded-circle bg-soft-pink border-pink border">
-                        <i class="mdi mdi-human-handsdown font-36 avatar-title text-pink"></i>
-                    </div>
-                </div>
-                <div class="col-8">
-                    <div class="text-right">
-                        <h3 class="text-dark mt-1"><span data-plugin="counterup">78.41</span>k</h3>
-                        <p class="text-muted mb-1 text-truncate">Exposed Individuals</p>
-                    </div>
-                </div>
-            </div> <!-- end row-->
-        </div> <!-- end widget-rounded-circle-->
-    </div> <!-- end col-->
-</div>
-<!-- end row-->
-
-<div class="row">
-    <div class="col-lg-4">
-        <div class="card-box">
-            
-
-            <h4 class="header-title mb-0">Entity Analytics</h4>
-
-            <div class="widget-chart text-center" dir="ltr">
-                
-                <div id="total-revenue" class="mt-0"  data-colors="#5671f0"></div>
-                <p class="text-dark w-75 mx-auto sp-line-2">We have a total of 3692 registered entities.</p>
-                <h2 class="text-danger">178</h2>
-                <h5 class="text-muted mt-0">Actively Exposed</h5>
-                
-
-                <div class="row mt-3">
-                    <div class="col-4">
-                        <p class="text-muted font-15 mb-1 text-truncate">Today</p>
-                        <h4><i class="fe-arrow-down text-success mr-1"></i>1</h4>
-                    </div>
-                    <div class="col-4">
-                        <p class="text-muted font-15 mb-1 text-truncate">This Week</p>
-                        <h4><i class="fe-arrow-up text-danger mr-1"></i>8</h4>
-                    </div>
-                    <div class="col-4">
-                        <p class="text-muted font-15 mb-1 text-truncate">This Month</p>
-                        <h4><i class="fe-arrow-down text-success mr-1"></i>23</h4>
-                    </div>
-                </div>
-                
-            </div>
-        </div> <!-- end card-box -->
-    </div> <!-- end col-->
-
-    <div class="col-lg-8">
-        <div class="card-box pb-2">
-            <div class="float-right d-none d-md-inline-block">
-                <div class="btn-group mb-2">
-                    <button type="button" class="btn btn-xs btn-light">Today</button>
-                    <button type="button" class="btn btn-xs btn-light">Weekly</button>
-                    <button type="button" class="btn btn-xs btn-secondary">Monthly</button>
-                </div>
-            </div>
-
-            <h4 class="header-title mb-3">Trace Analytics</h4>
-
-            <div dir="ltr">
-                <div id="sales-analytics" class="mt-4" data-colors="#43bfe5,#6c757d"></div>
-            </div>
-        </div> <!-- end card-box -->
-    </div> <!-- end col-->
-</div>
-<!-- end row -->
-
-<div class="row">
-    <div class="col-xl-6">
-        <div class="card-box">
-            <div class="dropdown float-right">
-                <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
-                    <i class="mdi mdi-dots-vertical"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item">Edit Report</a>
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                </div>
-            </div>
-
-            <h4 class="header-title mb-3">Recent NCDC Contact Trace Request</h4>
-
-            <div class="table-responsive">
-                <table class="table table-borderless table-hover table-nowrap table-centered m-0">
-
-                    <thead class="thead-light">
-                        <tr>
-                            <th class="font-weight-medium">Entity</th>
-                            <th class="font-weight-medium">Exposed Location</th>
-                            <th class="font-weight-medium">Date</th>
-                            <th class="font-weight-medium">Status</th>
-                            <th class="font-weight-medium">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td style="width: 36px;">
-                                <img src="../assets/images/shoprite.jpg" alt="contact-img" title="contact-img" class="rounded-circle avatar-sm" />
-                            </td>
-
-                            <td>Apo-Dutse, AMAC, Abuja</td>
-
-                            <td>Jun 15, 2020 </td>
-
-                            <td>
-                                <span class="badge bg-soft-danger text-danger">Pending</span>
-                            </td>
-
-                            <td>
-                                <a href="javascript: void(0);" class="btn btn-xs btn-light"><i class="mdi mdi-pencil"></i></a>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td style="width: 36px;">
-                                <img src="../assets/images/dominos.png" alt="contact-img" title="contact-img" class="rounded-circle avatar-sm" />
-                            </td>
-
-                            <td>Garki Area 10, Abuja</td>
-
-                            <td>Jun 15, 2020</td>
-
-                            <td>
-                               <span class="badge bg-soft-danger text-danger">Pending</span>
-                            </td>
-
-                            <td>
-                               <a href="javascript: void(0);" class="btn btn-xs btn-light"><i class="mdi mdi-pencil"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="width: 36px;">
-                                <img src="../assets/images/mtn.png" alt="contact-img" title="contact-img" class="rounded-circle avatar-sm" />
-                            </td>
-
-                            <td>Ring Road, Oyo</td>
-
-                            <td>Jun 15, 2020</td>
-
-                            <td>
-                                <span class="badge bg-soft-danger text-danger">Pending</span>
-                            </td>
-
-                            <td>
-                              <a href="javascript: void(0);" class="btn btn-xs btn-light"><i class="mdi mdi-pencil"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="width: 36px;">
-                                <img src="../assets/images/gig.jpg" alt="contact-img" title="contact-img" class="rounded-circle avatar-sm" />
-                            </td>
-
-                            <td>Jibowu, Lagos</td>
-
-                            <td>
-                                Jun 15, 2020</td>
-
-                            <td>
-                                <span class="badge bg-soft-success text-success">Traced</span>
-                            </td>
-
-                            <td>
-                                <a href="javascript: void(0);" class="btn btn-xs btn-light"><i class="mdi mdi-pencil"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="width: 36px;">
-                                <img src="../assets/images/filmhouse.jpg" alt="contact-img" title="contact-img" class="rounded-circle avatar-sm" />
-                            </td>
-
-                            <td>Palms Mall, Rivers </td>
-
-                            <td>Jun 15, 2020</td>
-
-                            <td>
-                                <span class="badge bg-soft-success text-success">Traced</span>
-                            </td>
-
-                            <td>
-                               <a href="javascript: void(0);" class="btn btn-xs btn-light"><i class="mdi mdi-pencil"></i></a>
-                            </td>
-                        </tr>
-
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div> <!-- end col -->
-
-    <div class="col-xl-6">
-        <div class="card-box">
-            <div class="dropdown float-right">
-                <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
-                    <i class="mdi mdi-dots-vertical"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item">Edit Report</a>
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                </div>
-            </div>
-
-            <h4 class="header-title mb-3">Most Exposed Locations</h4>
-
-            <div class="table-responsive">
-                <table class="table table-borderless table-nowrap table-hover table-centered m-0">
-
-                    <thead class="thead-light">
-                        <tr>
-                            <th class="font-weight-medium">Entity</th>
-                            <th class="font-weight-medium">Location</th>
-                            <th class="font-weight-medium">Realtime</th>
-                            <th class="font-weight-medium">Date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                             <img src="../assets/images/gig.jpg" alt="contact-img" title="contact-img" class="rounded-circle avatar-sm" />
-                            </td>
-                            <td>
-                                <h5 class="m-0 font-weight-normal">Jibowu, Lagos</h5>
-                            </td>
-
-                            <td>
-                                <i class="fe-arrow-up text-danger mr-1"></i> 5
-                          </td>
-
-                            <td>
-                                Jun 15, 2020
-                          </td>
-
-                      </tr>
-
-                        <tr>
-                            <td>
-                             <img src="../assets/images/mtn.png" alt="contact-img" title="contact-img" class="rounded-circle avatar-sm" />
-                            </td>
-                            <td>
-                                <h5 class="m-0 font-weight-normal">Ring Road, Oyo</h5>
-                            </td>
-
-                            <td>
-                                <i class="fe-arrow-up text-danger mr-1"></i> 5
-                          </td>
-
-                            <td>
-                                Jun 13, 2020
-                          </td>
-
-                      </tr>
-
-                        <tr>
-                            <td>
-                             <img src="../assets/images/shoprite.jpg" alt="contact-img" title="contact-img" class="rounded-circle avatar-sm" />
-                            </td>
-                            <td>
-                                <h5 class="m-0 font-weight-normal">Apo-Dutse, AMAC, Abuja</h5>
-                            </td>
-
-                            <td>
-                                <i class="fe-arrow-down text-success mr-1"></i> 4
-                          </td>
-
-                            <td>
-                                Jun 10, 2020
-                          </td>
-
-                      </tr>
-
-                        <tr>
-                            <td>
-                             <img src="../assets/images/dominos.png" alt="contact-img" title="contact-img" class="rounded-circle avatar-sm" />
-                            </td>
-                            <td>
-                                <h5 class="m-0 font-weight-normal">Garki Area 10, Abuja</h5>
-                            </td>
-
-                            <td>
-                                <i class="fe-arrow-up text-danger mr-1"></i> 3
-                          </td>
-
-                            <td>
-                                Jun 09, 2020
-                          </td>
-
-                      </tr>
-
-                        <tr>
-                            <td>
-                             <img src="../assets/images/filmhouse.jpg" alt="contact-img" title="contact-img" class="rounded-circle avatar-sm" />
-                            </td>
-                            <td>
-                                <h5 class="m-0 font-weight-normal">Palms Mall, Rivers</h5>
-                            </td>
-
-                            <td>
-                                <i class="fe-arrow-down text-success mr-1"></i> 2
-                            </td>
-
-                            <td>
-                                Jun 05, 2020
-                            </td>
-
-                        </tr>
-
-
-                    </tbody>
-                </table>
-            </div> <!-- end .table-responsive-->
-        </div> <!-- end card-box-->
-    </div> <!-- end col -->
-</div>
-<!-- end row -->
+</section>
+<!-- End Dashboard -->

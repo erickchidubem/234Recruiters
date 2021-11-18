@@ -47,30 +47,26 @@ export class ForgotPasswordComponent implements OnInit {
   this.utils.StartSpinner();
   let formData = JSON.stringify(this.form.value);
   console.log(formData);
-  this.context.postWithNoToken(formData, 'account/passwordresetlink').subscribe(
+  this.context.postWithNoToken(formData, 'Account/SendPasswordReset').subscribe(
     data=>{
       this.utils.StopSpinner(); 
       let d = <any>data;
-      if(d.error == false){
-       // this.toaster.Success(d.message);  
-       console.log(d.message)
-        this.toaster.success("Please Login to your email and click on the link to reset your password") ;
+      if(d.responseCode =="00"){
+        this.toaster.success(d.responseFriendlyMessage)
         this.form.reset();
         this.submitted = false;
-       
-     }else{
-       this.toaster.error(d.message);
-     }
+      }else{
+        this.toaster.error(d.responseFriendlyMessage)
+      }
       console.log(data);
     },
     err => {
       this.utils.StopSpinner();
-      if(err.status == 422){
-        this.toaster.error(err.error.message);
-      }
+                            
       console.log('Error Message : '+err.message);
       console.log('Error : '+err.status);
-      console.log( err.error);   
+      console.log (err.error)
+      this.toaster.error(err.error.responseFriendlyMessage) 
 
       }
   );

@@ -28,7 +28,7 @@ export class Constants{
       if(this.deployMode == 0){
         return "https://localhost:2599/api/"; // dev
       }else if(this.deployMode == 1){
-        return "http://contacttrace.ng/test/api/public/"; // online test server
+        return "http://www.234recruiter.com/api/"; // online test server
       }else if(this.deployMode == 2){
         return "https://flaxity.com/cisburosal/public/"; //live
       }
@@ -39,6 +39,13 @@ export class Constants{
                            .set('Authorization', 'Bearer ' + this.GetToken());      
        return headers;
    }
+
+   GetHttpHeadersToken2() : HttpHeaders{
+    const headers = new HttpHeaders().set('content-type', 'multipart/form-data')
+                                     .set('APIKEY', this.GetAPIKEY())      
+                                     .set('Authorization', 'Bearer ' + this.GetToken());      
+    return headers;
+}
 
   GetHttpHeadersAnonymous() : HttpHeaders{
     const headers = new HttpHeaders().set('content-type', 'application/json')

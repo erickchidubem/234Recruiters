@@ -12,14 +12,20 @@ import { ToastrService } from 'ngx-toastr';
 export class BodyContentComponent implements OnInit {
 
   constructor(private utils : Utils, private context : ContextService, private router : Router,
-              private toaster : ToastrService) { }
+
+              private toaster : ToastrService) {
+
+                this.role = this.utils.getUserFromToken().userrole;
+                console.log(this.role)
+               }
  
 
   name : string;
   traceContact : Boolean = false;
+  role : string = "CANDIDATE";
   ngOnInit(): void {
       console.log(this.utils.getUserFromToken());
-
+      this.GetUserProfile();
       if(this.utils.getUserFromToken().userType == 2){
           this.name = this.utils.getUserFromToken().entityName;
           this.traceContact = false;
@@ -32,24 +38,28 @@ export class BodyContentComponent implements OnInit {
       console.log(this.traceContact)
   }
 
-  logout(){
-    // this.context.postWithToken('','account/logout').
-    //     subscribe((response:Response)=>{ 
-    //            let data = <any>response;
-    //           console.log(data)
+  logout(){   
                 localStorage.removeItem('token');
                 localStorage.clear();
-                this.router.navigate(['/']);
+                this.router.navigate(['/']);  
+  } 
 
-        // },
-        // err => {
-        //             this.utils.StopSpinner();                              
-        //             console.log('Error Message : '+err.message);
-        //             console.log('Error : '+err.status);
-        //             console.log (err.error)
-        //             this.toaster.error("Error")
-                   
-        // })
+  GetUserProfile(){
+    this.context.getWithToken('','UserProfile/GetUserProfile').
+    subscribe( data => {
+      let d = <any>data; 
+      console.log(d)
+     // this.role = d.responseObject.userRole;
+      console.log(d.responseObject.userRole)
+      if(d.responseObject.userProfile == null){
+        
+        this.router.navigate(['/access/user-profile'])
+
+      }
+      //this.categories = d.responseObject;
+     
+    });
+   
       
   } 
 

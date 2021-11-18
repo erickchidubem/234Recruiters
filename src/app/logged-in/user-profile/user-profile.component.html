@@ -1,0 +1,155 @@
+<section class="user-dashboard">
+    <div class="dashboard-outer">
+        <div class="upper-title-box">
+            <h3>My Profile</h3>
+            <div class="text">Ready to jump back in?</div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Ls widget -->
+                <div class="ls-widget">
+                    <div class="tabs-box">                        
+                        <div class="widget-title">
+                            <h4>My Profile</h4>
+                        </div>
+
+                        <div class="widget-content">
+                            <form [formGroup]="form" (ngSubmit)="Submit()" class="default-form">
+                                <div class="row">
+                                    <!-- Input -->
+                                    <ng-container *ngIf="userRole=='CANDIDATE'">
+                                    <div class="form-group col-lg-6 col-md-12">
+                                        <label>First Name</label>
+                                        <input type="text" name="firstName" placeholder="First Name" formControlName="firstName" id="firstName" [ngClass]="{'is-invalid':submitted && f.firstName.errors}">
+                                        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                            <div *ngIf="f.firstName.errors.required">this field is required</div>
+                                         </div>
+                                    </div>
+
+                                    <!-- Input -->
+                                    <div class="form-group col-lg-6 col-md-12">
+                                        <label>Last Name</label>
+                                        <input type="text" name="lastName" placeholder="Last Name" formControlName="lastName" id="lastName" [ngClass]="{'is-invalid':submitted && f.lastName.errors}">
+                                        <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                                            <div *ngIf="f.lastName.errors.required">this field is required</div>
+                                         </div>
+                                   
+                                    </div>
+                                </ng-container>
+                                    <ng-container *ngIf="userRole=='EMPLOYER'">
+                                    <div class="form-group col-lg-12 col-md-12">
+                                        <label>Company Name</label>
+                                        <input type="text" name="companyName" placeholder="Company Name" formControlName="companyName" id="companyName" [ngClass]="{'is-invalid':submitted && f.companyName.errors}">
+                                        <div *ngIf="submitted && f.companyName.errors" class="invalid-feedback">
+                                            <div *ngIf="f.companyName.errors.required">this field is required</div>
+                                         </div>
+                                    </div>
+                                    </ng-container>
+
+                                    <!-- Input -->
+                                    <div class="form-group col-lg-6 col-md-12">
+                                        <label>Phone</label>
+                                        <input type="text" name="phone" placeholder="08123456789" formControlName="phone" id="phone" [ngClass]="{'is-invalid':submitted && f.phone.errors}">
+                                        <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+                                            <div *ngIf="f.phone.errors.required">this field is required</div>
+                                         </div>
+                                    </div>
+
+                                    <!-- Input -->
+                                    <div class="form-group col-lg-6 col-md-12">
+                                        <label>Email address</label>
+                                        <input type="email" name="email" placeholder="creativelayers"formControlName="email" id="email" [ngClass]="{'is-invalid':submitted && f.email.errors}" type="email" required="" placeholder="Enter your email">
+        
+                                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                            <div *ngIf="f.email.errors.required">this field is required</div>
+                                            <div *ngIf="f.email.errors.email">please enter a valid email address</div>
+                                         </div>
+                                    </div>
+
+                                     <!-- About Company -->
+                                     <div class="form-group col-lg-12 col-md-12">
+                                        <label>About {{the_type}}</label>
+                                        <textarea name="briefDescription" formControlName="briefDescription" id="briefDescription" [ngClass]="{'is-invalid':submitted && f.briefDescription.errors}" placeholder="Spent several years working on sheep on Wall Street. Had moderate success investing in Yugo's on Wall Street. Managed a small team buying and selling Pogo sticks for farmers. Spent several years licensing licorice in West Palm Beach, FL. Developed several new methods for working it banjos in the aftermarket. Spent a weekend importing banjos in West Palm Beach, FL.In this position, the Software Engineer collaborates with Evention's Development team to continuously enhance our current software solutions as well as create new solutions to eliminate the back-office operations and management challenges present"></textarea>
+                                        <div *ngIf="submitted && f.briefDescription.errors" class="invalid-feedback">
+                                            <div *ngIf="f.briefDescription.errors.required">this field is required</div>
+                                           
+                                         </div>
+                                  
+                                    </div>
+
+
+                                      <!-- Input -->
+                                      <div class="form-group col-lg-6 col-md-12">
+                                        <label>State Of Residence</label>
+                                        <select class="chosen-select" formControlName="stateOfResidence" id="stateOfResidence">                              
+                                            <option *ngFor="let c of states;let i = index">{{c}}</option>
+                                        </select> 
+                                    </div>
+
+                                     <!-- Input -->
+                                     <div class="form-group col-lg-6 col-md-12">
+                                        <label>Primay Industry</label>
+                                        <select class="chosen-select" formControlName="primaryIndustry" id="primaryIndustry">
+                                            <option value="-all-">All Categories</option>
+                                            <option *ngFor="let c of categories;let i = index">{{c.category}}</option>
+                                        </select>
+                                    </div>
+
+
+                                <ng-container *ngIf="userRole =='EMPLOYER'">
+                                    <!-- Input -->
+                                        <div class="form-group col-lg-6 col-md-12">
+                                            <label>Website</label>
+                                            <input type="text" name="name" formControlName="website" id="website" placeholder="www.jerome.com">
+                                        </div>
+                                        <div class="form-group col-lg-6 col-md-12">
+                                            <label>Address</label>
+                                            <input type="text" name="name" formControlName="address" id="address" placeholder="Head Office Address">
+                                        </div>
+                                </ng-container>
+                                   
+
+                                
+                                <ng-container *ngIf="userRole =='CANDIDATE'">
+                                    <!-- Input -->
+                                    <div class="form-group col-lg-6 col-md-12">
+                                        <label>Done NYSC?</label>
+                                        <select class="chosen-select" formControlName="doneNYSC" id="doneNYSC">
+                                            <option value="true">YES</option>
+                                            <option value="false">NO</option>
+                                        </select>
+                                    </div>
+                                    <!-- Input -->
+                                    <div class="form-group col-lg-6 col-md-12">
+                                        <label>Highest Qualification</label>
+                                        <select class="chosen-select" formControlName="higestQualification" id="higestQualification">
+                                            <option>S.S.C.E</option>
+                                            <option>O.N.D</option>
+                                            <option>H.N.D</option>
+                                            <option>B.Sc</option>
+                                            <option>M.Sc</option>
+                                            <option>PhD</option>
+                                        </select>
+                                    </div>
+
+                                  </ng-container>
+
+                                    <!-- Input -->
+                                    <div class="form-group col-lg-12 col-md-12">
+                                        <button class="theme-btn btn-style-one">Save</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+           
+
+            </div>
+
+
+        </div>
+    </div>
+</section>

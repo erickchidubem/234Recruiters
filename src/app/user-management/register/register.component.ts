@@ -30,9 +30,11 @@ export class RegisterComponent implements OnInit {
 
     form : FormGroup;
     submitted : boolean = false;
+    typeuser : string = "Candidate";
     ngOnInit() {
       this.submitted = false;
       this.generateForm();
+      this.typeuser = "Candidate"
     }
   
     get f(){return this.form.controls;}
@@ -102,10 +104,12 @@ export class RegisterComponent implements OnInit {
       $("#employer").addClass("btn-style-seven");
       $("#candidate").removeClass("btn-style-seven"); 
       $("#candidate").addClass("btn-style-four"); 
+      this.typeuser = "Employer";
     }else{
       $("#candidate").addClass("btn-style-seven");
       $("#employer").removeClass("btn-style-seven"); 
       $("#employer").addClass("btn-style-four");
+      this.typeuser = "Candidate";
     }
     this.form.patchValue({roleName : value})
   }

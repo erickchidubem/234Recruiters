@@ -27,9 +27,12 @@ export class ContextService {
 
 
   postWithToken(DataObject : any,SubAPIURL : string){
-    return this.http.post(this.config.apiUrl + SubAPIURL, DataObject,{ headers:this.config.GetHttpHeadersToken()} );
+    return this.http.post<any>(this.config.apiUrl + SubAPIURL, DataObject,{ headers:this.config.GetHttpHeadersToken()} );
   }
 
+  postWithToken2(DataObject : any,SubAPIURL : string){
+    return this.http.post<any>(this.config.apiUrl + SubAPIURL, DataObject,{ headers:this.config.GetHttpHeadersToken2()} );
+  }
 
   getWithNoToken(DataObject : string, SubAPIURL : string){
     return this.http.get(this.config.apiUrl + SubAPIURL+DataObject, {headers : this.config.GetHttpHeadersAnonymous()});

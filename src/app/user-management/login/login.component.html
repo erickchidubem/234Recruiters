@@ -56,23 +56,17 @@
                 <!--Nav Outer -->
                 <div class="nav-outer">
                     <div class="logo-box">
-                        <div class="logo"><a href="index-2.html"><img src="../../../assets/images/logo-2.svg" alt="" title=""></a></div>
+                        <div class="logo"><a routerLink="/home"><img src="../../../assets/images/logo-2.svg" alt="" title=""></a></div>
                     </div>
                 </div>
 
-                <div class="outer-box">
-                    <!-- Login/Register -->
-                    <div class="btn-box">
-                        <a href="login-popup.html" class="theme-btn btn-style-three call-modal">Login / Register</a>
-                        <a href="dashboard-post-job.html" class="theme-btn btn-style-one"><span class="btn-title">Job Post</span></a>
-                    </div>
-                </div>
+             
             </div>
         </div>
 
         <!-- Mobile Header -->
         <div class="mobile-header">
-            <div class="logo"><a href="index-2.html"><img src="../../../assets/images/logo.svg" alt="" title=""></a></div>
+            <div class="logo"><a routerLink="/home"><img src="../../../assets/images/logo.svg" alt="" title=""></a></div>
         </div>
 
         <!-- Mobile Nav -->
@@ -87,7 +81,7 @@
              <!-- Login Form -->
             <div class="login-form default-form">
                 <div class="form-inner">
-                    <h3>Login to Superio</h3>
+                    <h3>Login to 234Recruiter</h3>
                     <!--Login Form-->
                     <form [formGroup]="form" (ngSubmit)="Login()">
                         <div class="form-group">
@@ -124,7 +118,7 @@
                                     <input type="checkbox" name="remember-me" value="" id="remember">
                                     <label for="remember" class="remember"><span class="custom-checkbox"></span> Remember me</label>
                                 </div>
-                                <a href="#" class="pwd">Forgot password?</a>
+                                <a routerLink="/public-user/forgot-password" class="pwd">Forgot password?</a>
                             </div>
                         </div>
 

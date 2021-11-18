@@ -2497,6 +2497,8 @@ section hr {
 .default-form .form-group input[type="number"],
 .default-form .form-group input[type="email"],
 .default-form .form-group input[type="url"],
+.default-form .form-group input[type="date"],
+.default-form .form-group input[type="file"],
 .default-form .form-group textarea,
 .default-form .form-group select {
     position: relative;
@@ -4211,7 +4213,7 @@ Page Title
     background-size: cover;
     text-align: center;
     padding: 50px 0 40px;
-    background: #F5F7FC;
+    background: #0b0b45;
 }
 
 .page-title:before{

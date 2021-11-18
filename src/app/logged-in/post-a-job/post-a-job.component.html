@@ -1,0 +1,180 @@
+<section class="user-dashboard">
+    <div class="dashboard-outer">
+        <div class="upper-title-box">
+            <h3>Job Information</h3>
+            <div class="text">Ready to jump back in?</div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Ls widget -->
+                <div class="ls-widget">
+                    <div class="tabs-box">                        
+                        <div class="widget-title">
+                            <h4>{{action}} A Job</h4>
+                        </div>
+
+                        <div class="widget-content">
+                            <form [formGroup]="form" (ngSubmit)="Submit()" class="default-form">
+                                <div class="row">
+                                    <!-- Input -->
+                                    
+                                    <div class="form-group col-lg-6 col-md-12">
+                                        <label>Job Title</label>
+                                        <input type="text" name="jobTitle" placeholder="Job Title" formControlName="jobTitle" id="jobTitle" [ngClass]="{'is-invalid':submitted && f.jobTitle.errors}">
+                                        <div *ngIf="submitted && f.jobTitle.errors" class="invalid-feedback">
+                                            <div *ngIf="f.jobTitle.errors.required">this field is required</div>
+                                         </div>
+                                    </div>
+
+                                    <!-- Input -->
+                                    <div class="form-group col-lg-6 col-md-12">
+                                        <label>JOB TYPE</label>
+                                        <select class="chosen-select" formControlName="jobType" id="jobType">                              
+                                       
+                                         <option>FULL TIME - ONSITE</option>
+                                         <option>FULL TIME - REMOTE</option>
+                                         <option>PART TIME - ONSITE</option>
+                                         <option>PART TIME - REMOTE</option>
+                                         <option>INTERNSHIP - ONSITE</option>
+                                         <option>INTERNSHIP - ONSITE</option>
+                                        </select> 
+                                        <div *ngIf="submitted && f.jobType.errors" class="invalid-feedback">
+                                            <div *ngIf="f.jobType.errors.required">this field is required</div>
+                                         </div>
+                                   
+                                    </div>
+
+                                    <div class="form-group col-lg-6 col-md-12">
+                                        <label>Job Location</label>
+                                        <select class="chosen-select" formControlName="jobLocation" id="jobLocation">                              
+                                            <option *ngFor="let c of states;let i = index">{{c}}</option>
+                                        </select> 
+                                    </div>
+
+                                     <!-- Input -->
+                                     <div class="form-group col-lg-6 col-md-12">
+                                        <label>Job Category</label>
+                                        <select class="chosen-select" formControlName="jobCategoryId" id="jobCategoryId">
+                                           
+                                            <option *ngFor="let c of categories;let i = index" value="{{c.id}}" >{{c.category}}</option>
+                                        </select>
+                                    </div>
+
+
+                                      <!-- About Company -->
+                                      <div class="form-group col-lg-12 col-md-12">
+                                        <label>Job Description</label>
+                                        <textarea name="jobDescription" formControlName="jobDescription" id="jobDescription" [ngClass]="{'is-invalid':submitted && f.jobDescription.errors}" placeholder="Spent several years working on sheep on Wall Street. Had moderate success investing in Yugo's on Wall Street. Managed a small team buying and selling Pogo sticks for farmers. Spent several years licensing licorice in West Palm Beach, FL. Developed several new methods for working it banjos in the aftermarket. Spent a weekend importing banjos in West Palm Beach, FL.In this position, the Software Engineer collaborates with Evention's Development team to continuously enhance our current software solutions as well as create new solutions to eliminate the back-office operations and management challenges present"></textarea>
+                                        <div *ngIf="submitted && f.jobDescription.errors" class="invalid-feedback">
+                                            <div *ngIf="f.jobDescription.errors.required">this field is required</div>
+                                           
+                                         </div>
+                                  
+                                    </div>
+                                    <div class="form-group col-lg-12 col-md-12">
+                                        <label>Job Key Responsibility</label>
+                                        <textarea name="keyResponsibility" formControlName="keyResponsibility" id="keyResponsibility" [ngClass]="{'is-invalid':submitted && f.keyResponsibility.errors}" placeholder="Spent several years working on sheep on Wall Street. Had moderate success investing in Yugo's on Wall Street. Managed a small team buying and selling Pogo sticks for farmers. Spent several years licensing licorice in West Palm Beach, FL. Developed several new methods for working it banjos in the aftermarket. Spent a weekend importing banjos in West Palm Beach, FL.In this position, the Software Engineer collaborates with Evention's Development team to continuously enhance our current software solutions as well as create new solutions to eliminate the back-office operations and management challenges present"></textarea>
+                                        <div *ngIf="submitted && f.keyResponsibility.errors" class="invalid-feedback">
+                                            <div *ngIf="f.keyResponsibility.errors.required">this field is required</div>
+                                           
+                                         </div>
+                                  
+                                    </div>
+                                    <div class="form-group col-lg-12 col-md-12">
+                                        <label>Skills And Experience Required</label>
+                                        <textarea name="skillsAndExperience" formControlName="skillsAndExperience" id="skillsAndExperience" [ngClass]="{'is-invalid':submitted && f.skillsAndExperience.errors}" placeholder="Spent several years working on sheep on Wall Street. Had moderate success investing in Yugo's on Wall Street. Managed a small team buying and selling Pogo sticks for farmers. Spent several years licensing licorice in West Palm Beach, FL. Developed several new methods for working it banjos in the aftermarket. Spent a weekend importing banjos in West Palm Beach, FL.In this position, the Software Engineer collaborates with Evention's Development team to continuously enhance our current software solutions as well as create new solutions to eliminate the back-office operations and management challenges present"></textarea>
+                                        <div *ngIf="submitted && f.skillsAndExperience.errors" class="invalid-feedback">
+                                            <div *ngIf="f.skillsAndExperience.errors.required">this field is required</div>
+                                           
+                                         </div>
+                                  
+                                    </div>
+
+                                    <div class="form-group col-lg-6 col-md-12">
+                                        <label>Start Accepting Entry Date</label>
+                                        <input type="date" name="startAcceptingEntryDate" placeholder="20/09/2021" formControlName="startAcceptingEntryDate" id="startAcceptingEntryDate" [ngClass]="{'is-invalid':submitted && f.startAcceptingEntryDate.errors}">
+                                        <div *ngIf="submitted && f.startAcceptingEntryDate.errors" class="invalid-feedback">
+                                            <div *ngIf="f.startAcceptingEntryDate.errors.required">this field is required</div>
+                                         </div>
+                                    </div>
+                                    <div class="form-group col-lg-6 col-md-12">
+                                        <label>Expiry Date</label>
+                                        <input type="date" name="expiryDate" placeholder="24/04/2022" formControlName="expiryDate" id="expiryDate" [ngClass]="{'is-invalid':submitted && f.expiryDate.errors}">
+                                        <div *ngIf="submitted && f.expiryDate.errors" class="invalid-feedback">
+                                            <div *ngIf="f.expiryDate.errors.required">this field is required</div>
+                                         </div>
+                                    </div>
+
+                               
+                                  
+
+                                    <!-- Input -->
+                                    <div class="form-group col-lg-6 col-md-12">
+                                        <label>Minimum Salary Range</label>
+                                        <input type="text" name="salaryRangeFrom" placeholder="Enter minimum Salary Range" formControlName="salaryRangeFrom" id="salaryRangeFrom" [ngClass]="{'is-invalid':submitted && f.salaryRangeFrom.errors}">
+                                        <div *ngIf="submitted && f.salaryRangeFrom.errors" class="invalid-feedback">
+                                            <div *ngIf="f.salaryRangeFrom.errors.required">this field is required</div>
+                                         </div>
+                                    </div>
+
+                                    <!-- Input -->
+                                    <div class="form-group col-lg-6 col-md-12">
+                                        <label>Maximum Salary Range</label>
+                                        <input type="text" name="salaryRangeTo" formControlName="salaryRangeTo" id="salaryRangeTo" [ngClass]="{'is-invalid':submitted && f.salaryRangeTo.errors}"  placeholder="Enter Maximum Salary Range">
+        
+                                        <div *ngIf="submitted && f.salaryRangeTo.errors" class="invalid-feedback">
+                                            <div *ngIf="f.salaryRangeTo.errors.required">this field is required</div>
+                                           
+                                         </div>
+                                    </div>
+
+                                   
+
+
+                                      <!-- Input -->
+                                      <div class="form-group col-lg-6 col-md-12">
+                                        <label>Is this Job Urgent?</label>
+                                        <select class="chosen-select" formControlName="urgency" id="urgency">                              
+                                            <option value="false">NO</option>
+                                            <option value="true">YES</option>
+                                        </select> 
+                                    </div>
+
+                                     <!-- Input -->
+                                     <div class="form-group col-lg-6 col-md-12">
+                                        <label>Hours Per Week</label>
+                                        <select class="chosen-select" formControlName="hoursPerWeek" id="hoursPerWeek">
+                                            <option value="5">5 HOURS/WEEK</option>
+                                           <option value="10">10 HOURS/WEEK</option>
+                                           <option value="15">15 HOURS/WEEK</option>
+                                           <option value="20">20 HOURS/WEEK</option>
+                                           <option value="25">25 HOURS/WEEK</option>
+                                           <option value="30">30 HOURS/WEEK</option>
+                                           <option value="40">40 HOURS/WEEK</option>
+                                           <option value="50">50 HOURS/WEEK</option>
+                                           <option value="60">60 HOURS/WEEK</option>
+                                        </select>
+                                    </div>
+
+
+                               
+
+                                    <!-- Input -->
+                                    <div class="form-group col-lg-12 col-md-12">
+                                        <button  class="theme-btn btn-style-one">Save</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+           
+
+            </div>
+
+
+        </div>
+    </div>
+</section>

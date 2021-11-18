@@ -6,43 +6,28 @@ import { FormsModule,ReactiveFormsModule }   from '@angular/forms';
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 import { CommonModule } from '@angular/common';
 import { LottieModule } from 'ngx-lottie';
-import { CreateNewUserComponent } from './create-new-user/create-new-user.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardGeneralAdminComponent } from './dashboard/dashboard-general-admin/dashboard-general-admin.component';
 import { DashboardIndividualComponent } from './dashboard/dashboard-individual/dashboard-individual.component';
-import { CreateEntityLocationComponent } from './create-entity-location/create-entity-location.component';
-import { ViewMyEntityLocationsComponent } from './view-my-entity-locations/view-my-entity-locations.component';
 import { AnQrcodeModule } from 'an-qrcode';
 import { ChartsModule } from 'ng2-charts';
 import { DashboardEntityComponent } from './dashboard/dashboard-entity/dashboard-entity.component';
-import { TraceHistoryComponent } from './trace-history/trace-history.component';
 import { NgSelect2Module } from 'ng-select2';
-import { EntityExposedLocationsComponent } from './entity-exposed-locations/entity-exposed-locations.component';
-import { ViewUsersComponent } from './view-users/view-users.component';
-import { CreateTestCentersComponent } from './create-test-centers/create-test-centers.component';
-import { ViewTestCentersComponent } from './view-test-centers/view-test-centers.component';
-import { ViewContactTracedComponent } from './view-contact-traced/view-contact-traced.component';
-import { ViewAllEntitiesComponent } from './view-all-entities/view-all-entities.component';
-import { ViewAllLocationsCountComponent } from './view-all-locations-count/view-all-locations-count.component';
-import { ViewIndividualUsersComponent } from './view-individual-users/view-individual-users.component';
-import { ViewExposedIndividualsComponent } from './view-exposed-individuals/view-exposed-individuals.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { PostAJobComponent } from './post-a-job/post-a-job.component';
+import { JobSingleComponent } from '../public-pages/job-single/job-single.component';
+import { JobSearchComponent } from '../public-pages/job-search/job-search.component';
+import { UploadCvComponent } from './upload-cv/upload-cv.component';
 
 const routes: Routes = [
     {path : '',component:DashboardComponent},
-    {path : 'create-user', component : CreateNewUserComponent},
-    {path : 'create-location', component : CreateEntityLocationComponent},
-    {path : 'view-location', component : ViewMyEntityLocationsComponent},
-    {path : 'trace-contact', component : TraceHistoryComponent},
-    {path : 'entity-exposed-location', component : EntityExposedLocationsComponent},
-    {path : 'view-user', component : ViewUsersComponent},
-    {path : 'create-test-centers', component : CreateTestCentersComponent},
-    {path : 'view-test-centers', component : ViewTestCentersComponent},
-    {path : 'contact-traced/:companyname/:address/:id', component : ViewContactTracedComponent},
-    {path : 'view-entities', component : ViewAllEntitiesComponent},
-    {path : 'view-location-counts', component : ViewAllLocationsCountComponent},
-    {path : 'view-individuals', component:ViewIndividualUsersComponent},
-    {path : 'view-individuals-exposed', component:ViewExposedIndividualsComponent}
-    // { path : 'service-call/:id', component:ServiceTicketComponent},
+    
+    { path : 'user-profile', component:UserProfileComponent},
+    { path : 'post-a-job', component:PostAJobComponent},
+    { path : 'edit-a-job/:id', component:PostAJobComponent},
+    {path:'job-single/:id', component: JobSingleComponent},
+    {path:'job-search/:keyword/:location/:category',component:JobSearchComponent},
+    {path: 'upload-cv',component:UploadCvComponent}
     // { path : 'delivery-note/:id/:salesid', component : DeliveryTicketComponent}
      
  ];  
@@ -71,8 +56,7 @@ const routes: Routes = [
   ],
  
   declarations: [
-   
-CreateNewUserComponent,
+
    
 DashboardComponent,
    
@@ -80,31 +64,15 @@ DashboardGeneralAdminComponent,
    
 DashboardIndividualComponent,
    
-CreateEntityLocationComponent,
-   
-ViewMyEntityLocationsComponent,
-   
 DashboardEntityComponent,
    
-TraceHistoryComponent,
+UserProfileComponent,
    
-EntityExposedLocationsComponent,
+
+PostAJobComponent,
    
-ViewUsersComponent,
-   
-CreateTestCentersComponent,
-   
-ViewTestCentersComponent,
-   
-ViewContactTracedComponent,
-   
-ViewAllEntitiesComponent,
-   
-ViewAllLocationsCountComponent,
-   
-ViewIndividualUsersComponent,
-   
-ViewExposedIndividualsComponent],
+
+UploadCvComponent],
 
 })
 export class LoggedInModule { }

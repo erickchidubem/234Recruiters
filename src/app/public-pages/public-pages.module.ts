@@ -11,6 +11,7 @@ import { TermsComponent } from './terms/terms.component';
 import { FaqComponent } from './faq/faq.component';
 import { ContactComponent } from './contact/contact.component';
 import { JobSingleComponent } from './job-single/job-single.component';
+import { JobSearchComponent } from './job-search/job-search.component';
 //import { LottieModule } from 'ngx-lottie';
 
 
@@ -21,8 +22,8 @@ const routes: Routes = [
     {path:'terms', component : TermsComponent},
     {path:'faq', component : FaqComponent},
     {path:'contact', component:ContactComponent},
-    {path:'job-single/:id', component: JobSingleComponent}
-
+    {path:'job-single/:id', component: JobSingleComponent},
+    {path:'job-search/:keyword/:location/:category',component:JobSearchComponent}
 
     // { path: 'password-reset/:id/:date/:date2/:datediff', component : ResetPasswordComponent}
     // // { path : 'service-call/:id', component:ServiceTicketComponent},
@@ -59,6 +60,7 @@ const routes: Routes = [
     FaqComponent,
     ContactComponent,
     JobSingleComponent,
+    JobSearchComponent,
 ],
 
 })

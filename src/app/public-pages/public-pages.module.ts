@@ -12,6 +12,7 @@ import { FaqComponent } from './faq/faq.component';
 import { ContactComponent } from './contact/contact.component';
 import { JobSingleComponent } from './job-single/job-single.component';
 import { JobSearchComponent } from './job-search/job-search.component';
+import { ErrorComponent } from './error/error.component';
 //import { LottieModule } from 'ngx-lottie';
 
 
@@ -61,6 +62,7 @@ const routes: Routes = [
     ContactComponent,
     JobSingleComponent,
     JobSearchComponent,
+    ErrorComponent,
 ],
 
 })

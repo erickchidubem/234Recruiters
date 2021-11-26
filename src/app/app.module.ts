@@ -19,7 +19,7 @@ import { DatePipe } from '@angular/common';
 //import { Select2Module } from 'ng2-select2';
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,

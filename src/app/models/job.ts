@@ -1,0 +1,32 @@
+export interface Job {
+    id: number;
+    userId: number;
+    userProfileId: number;
+    jobCategoryId: number;
+    jobTitle: string;
+    jobDescription: string;
+    jobSegment?: any;
+    jobLocation: string;
+    startAcceptingEntryDate: Date;
+    expiryDate: Date;
+    salaryRangeFrom: number;
+    salaryRangeTo: number;
+    jobType: string;
+    urgency: boolean;
+    hoursPerWeek: number;
+    jobTags?: any;
+    skillsAndExperience: string;
+    keyResponsibility: string;
+    shouldApplyHere: boolean;
+    applicationLink: string;
+    createdDate: Date;
+    companyName: string;
+    briefDescription: string;
+    primaryIndustry: string;
+    address: string;
+    website: string;
+    stateOfResidence: string;
+    dateOfBirth: Date;
+    profilePictureURL?: any;
+    category: string;
+}

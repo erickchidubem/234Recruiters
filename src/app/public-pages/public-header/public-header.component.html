@@ -1,0 +1,78 @@
+<header class="main-header header-style-two alternate2">
+    <div class="auto-container">
+        <!-- Main box -->
+        <div class="main-box">
+            <!--Nav Outer -->
+            <div class="nav-outer">
+                <div class="logo-box">
+                    <div class="logo">
+                        <a routerLink="/home"><img src="assets/images/234recruiter.png" alt="" width="154" height="50"
+                                title=""></a>
+                    </div>
+                </div>
+                <nav class="nav main-menu">
+                    <ul class="navigation" id="navbar">
+                        <li><a routerLink="/home/about-us"><span>About Us</span></a></li>
+                        <li><a routerLink="/home/terms"><span>Terms</span></a></li>
+                        <li><a routerLink="/home/faq"><span>FAQ</span></a></li>
+                        <li><a routerLink="/home/contact"><span>Contact</span></a></li>
+                        <ng-container *ngIf="!userInfo">
+                            <li class="current"> <a routerLink="/public-user/register"><span>Sign Up</span></a></li>
+                            <li class=""> <a routerLink="/public-user/login"> <span>Sign In</span></a></li>
+                        </ng-container>                        
+                        <!-- Only for Mobile View -->
+                        <li class="mm-add-listing"> 
+                            <a href="add-listing.html" class="theme-btn btn-style-one">Job Post</a> 
+                            <span>
+                                <span class="contact-info">
+                                    <span class="phone-num">
+                                        <span>Call us</span>
+                                        <a href="tel:1234567890">123 456 7890</a>
+                                    </span> 
+                                    <span class="address">329 Queensberry Street, North Melbourne VIC <br>3051, Australia.</span> 
+                                    <a href="mailto:support@superio.com" class="email">support@superio.com</a> 
+                                </span>
+                                <span class="social-links">
+                                    <a href="#"><span class="fab fa-facebook-f"></span></a> 
+                                    <a href="#"><span class="fab fa-twitter"></span></a> 
+                                    <a href="#"><span class="fab fa-instagram"></span></a> 
+                                    <a href="#"><span class="fab fa-linkedin-in"></span></a>
+                                </span>
+                            </span>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- Main Menu End-->
+            </div>
+            <div class="outer-box">
+                <!-- Login/Register -->
+                <div class="btn-box"> 
+                    <a href="login-popup.html" class="theme-btn btn-style-six call-modal" *ngIf="!userInfo">Login / Register</a> 
+                    <a href="dashboard-post-job.html" class="theme-btn btn-style-two">
+                        <span class="btn-title">Job Post</span>
+                    </a> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Mobile Header -->
+    <div class="mobile-header">
+        <div class="logo">
+            <a routerLink="/home"><img src="assets/images/logo.svg" alt="" title=""></a>
+        </div>
+        <!--Nav Box-->
+        <div class="nav-outer clearfix">
+            <!-- <div class="outer-box">
+                
+                <div class="login-box"> 
+                    <a href="login.html" class="call-modal"><span class="icon-user"></span></a> 
+                </div> 
+                <a href="#nav-mobile" class="mobile-nav-toggler navbar-trigger">
+                    <span class="flaticon-menu-1"></span>
+                </a> 
+            </div> -->
+        </div>
+    </div>
+    <!-- Mobile Nav -->
+    <!-- <div id="nav-mobile"></div> -->
+</header>

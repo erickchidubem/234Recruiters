@@ -32,16 +32,10 @@ import { FormsModule,ReactiveFormsModule }   from '@angular/forms';
     imports: [
       RouterModule,
       CommonModule, 
-      ReactiveFormsModule,FormsModule,PasswordStrengthMeterModule,
+      ReactiveFormsModule, FormsModule, PasswordStrengthMeterModule
     ],
     exports : [
-       
-        CommonModule, ReactiveFormsModule,FormsModule,PasswordStrengthMeterModule,
-
-    ],
-    declarations: [
-
-    ],
-  
+      CommonModule, ReactiveFormsModule, FormsModule, PasswordStrengthMeterModule
+    ]
   })
   export class SharedModule { }

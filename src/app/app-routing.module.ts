@@ -4,7 +4,6 @@ import { BodyContentComponent } from "./shared/loggedin-layout/body-content/body
 import { PublicLayoutComponent } from "./public-pages/public-layout/public-layout.component";
 import { InternalAuthGuard } from "./shared/auth-guards/internal-auth-guard";
 import { NgxUiLoaderModule } from "ngx-ui-loader";
-import { ErrorComponent } from "./public-pages/error/error.component";
 const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
   {
@@ -29,7 +28,8 @@ const routes: Routes = [
     loadChildren: () =>
       import("./logged-in/logged-in.module").then((m) => m.LoggedInModule),
   },
-  // { path: '**', component: ErrorComponent },
+  // { path: '**', component: ErrorComponent },\
+  {path: 'error/500', redirectTo: "/home" }
 ];
 
 @NgModule({

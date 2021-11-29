@@ -1,82 +1,86 @@
-<ngx-ui-loader fgsColor="#ff9900" fgsType="three-strings" pbColor="#ff9900" bgsColor="red" text="Loading..." textColor="#ffffff"></ngx-ui-loader>
- 
+<ngx-ui-loader fgsColor="#ff9900" fgsType="three-strings" pbColor="#ff9900" bgsColor="red" text="Loading..."
+    textColor="#ffffff"></ngx-ui-loader>
+
 <html lang="en">
 
 <!-- Mirrored from creativelayers.net/themes/superio/dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 20 Jul 2021 22:05:09 GMT -->
+
 <head>
-<meta charset="utf-8">
-<title>234Recruiters | Dashboard</title>
+    <meta charset="utf-8">
+    <title>234Recruiters | Dashboard</title>
 
-<link rel="shortcut icon" href="../../../../assets/images/favicon.png" type="image/x-icon">
-<link rel="icon" href="../../../../assets/images/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../../../../assets/images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="../../../../assets/images/favicon.png" type="image/x-icon">
 
-<!-- Responsive -->
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
-<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
 </head>
 
 <body>
 
-<div class="page-wrapper dashboard ">
+    <div class="page-wrapper dashboard ">
 
-    <!-- Preloader -->
-    <!-- Header Span -->
-   <span class="header-span"></span> 
+        <!-- Preloader -->
+        <!-- Header Span -->
+        <span class="header-span"></span>
 
-    <!-- Main Header-->
-    <header class="main-header header-shaddow">
-        <div class="container-fluid">
-            <!-- Main box -->
-            <div class="main-box">
-                <!--Nav Outer -->
-                <div class="nav-outer">
-                    <div class="logo-box">
-                        <div class="logo"><a routerLink="/access"><img src="../../../../assets/images/logo.svg" alt="" title=""></a></div>
+        <!-- Main Header-->
+        <header class="main-header header-shaddow">
+            <div class="container-fluid">
+                <!-- Main box -->
+                <div class="main-box">
+                    <!--Nav Outer -->
+                    <div class="nav-outer">
+                        <div class="logo-box">
+                            <div class="logo"><a routerLink="/access"><img src="../../../../assets/images/logo.svg"
+                                        alt="" title=""></a></div>
+                        </div>
+
+                        <nav class="nav main-menu">
+                            <ul class="navigation" id="navbar">
+                                <li class=""> <span>Home</span></li>
+                                <li class=""> <a routerLink="/access/user-profile"><span>Profile</span></a></li>
+                                <!-- <ng-container *ngIf="role=='CANDIDATE'"> -->
+                                <li class=""> <a routerLink="/access/upload-cv"><span>Upload CV</span></a></li>
+                                <li class=""> <a routerLink="/access/job-search/-all-/-all-/-all-"><span>Find
+                                            Jobs</span></a></li>
+                                <!-- </ng-container> -->
+                                <!-- <ng-container *ngIf="role=='EMPLOYER'"> -->
+                                <li class=""> <a routerLink="/access/post-a-job"><span>Post A Job</span></a></li>
+                                <!-- </ng-container> -->
+
+
+                                <li class=""> <span>About</span></li>
+                                <li class=""> <span>FAQ</span></li>
+                                <li class=""> <span (click)="logout()">LogOut</span></li>
+
+
+
+
+
+                                <!-- Only for Mobile View -->
+
+                            </ul>
+                        </nav>
+                        <!-- Main Menu End-->
                     </div>
 
-                    <nav class="nav main-menu">
-                        <ul class="navigation" id="navbar">
-                            <li class=""> <span>Home</span></li>
-                            <li class=""> <a routerLink="/access/user-profile"><span>Profile</span></a></li>
-                             <!-- <ng-container *ngIf="role=='CANDIDATE'"> -->
-                                <li class=""> <a routerLink="/access/upload-cv"><span>Upload CV</span></a></li>
-                                <li class=""> <a routerLink="/access/job-search/-all-/-all-/-all-"><span>Find Jobs</span></a></li>
-                            <!-- </ng-container> -->
-                            <!-- <ng-container *ngIf="role=='EMPLOYER'"> -->
-                                <li class="" > <a routerLink="/access/post-a-job"><span>Post A Job</span></a></li>
-                            <!-- </ng-container> -->
-                           
-                            
-                            <li class=""> <span>About</span></li>
-                            <li class=""> <span>FAQ</span></li>
-                            <li class=""> <span (click)="logout()">LogOut</span></li>
+                    <div class="outer-box">
 
-                           
+                        <button class="menu-btn">
+                            <span class="count">1</span>
+                            <span class="icon la la-heart-o"></span>
+                        </button>
 
-                          
+                        <button class="menu-btn">
+                            <span class="icon la la-bell"></span>
+                        </button>
 
-                             <!-- Only for Mobile View -->
-                          
-                        </ul>     
-                    </nav>
-                    <!-- Main Menu End-->
-                </div>
-
-                <div class="outer-box">
-
-                    <button class="menu-btn">
-                        <span class="count">1</span>
-                        <span class="icon la la-heart-o"></span>
-                    </button>
-
-                    <button class="menu-btn">
-                        <span class="icon la la-bell"></span>
-                    </button>
-
-                    <!-- Dashboard Option -->
-                    <!-- <div class="dropdown dashboard-option">
+                        <!-- Dashboard Option -->
+                        <!-- <div class="dropdown dashboard-option">
                         <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="false"> 
                             <img src="images/resource/company-6.png" alt="avatar" class="thumb"> 
                             <span class="name">My Account</span>
@@ -97,42 +101,44 @@
                             <li><a href="index-2.html"><i class="la la-trash"></i>Delete Profile</a></li>
                         </ul>
                     </div> -->
-                </div>
-            </div>
-        </div>
-
-        <!-- Mobile Header -->
-        <div class="mobile-header">
-            <div class="logo"><a href="index-2.html"><img src="images/logo.svg" alt="" title=""></a></div>
-
-            <!--Nav Box-->
-            <div class="nav-outer clearfix">
-
-                <div class="outer-box">
-                    <!-- Login/Register -->
-                    <div class="login-box"> 
-                        <a href="login.html" class="call-modal"><span class="icon-user"></span></a>
                     </div>
-
-                    <button id="toggle-user-sidebar"><img src="images/resource/company-6.png" alt="avatar" class="thumb"></button>
-                    <a href="#nav-mobile" class="mobile-nav-toggler navbar-trigger"><span class="flaticon-menu-1"></span></a>
                 </div>
             </div>
 
-        </div>
+            <!-- Mobile Header -->
+            <div class="mobile-header">
+                <div class="logo"><a href="index-2.html"><img src="images/logo.svg" alt="" title=""></a></div>
 
-        <!-- Mobile Nav -->
-        <div id="nav-mobile"></div>
-    </header>
-    <!--End Main Header -->
+                <!--Nav Box-->
+                <div class="nav-outer clearfix">
 
-     <!-- Sidebar Backdrop -->
-    <div class="sidebar-backdrop"></div>
+                    <div class="outer-box">
+                        <!-- Login/Register -->
+                        <div class="login-box">
+                            <a href="login.html" class="call-modal"><span class="icon-user"></span></a>
+                        </div>
 
-    <!-- User Sidebar -->
-    <div class="user-sidebar">
+                        <button id="toggle-user-sidebar"><img src="images/resource/company-6.png" alt="avatar"
+                                class="thumb"></button>
+                        <a href="#nav-mobile" class="mobile-nav-toggler navbar-trigger"><span
+                                class="flaticon-menu-1"></span></a>
+                    </div>
+                </div>
 
-        <!-- <div class="sidebar-inner">
+            </div>
+
+            <!-- Mobile Nav -->
+            <div id="nav-mobile"></div>
+        </header>
+        <!--End Main Header -->
+
+        <!-- Sidebar Backdrop -->
+        <div class="sidebar-backdrop"></div>
+
+        <!-- User Sidebar -->
+        <div class="user-sidebar">
+
+            <!-- <div class="sidebar-inner">
             <ul class="navigation">
                 <li class="active"><a href="dashboard.html"> <i class="la la-home"></i> Dashboard</a></li>
                 <li><a href="dashboard-company-profile.html"><i class="la la-user-tie"></i>Company Profile</a></li>
@@ -149,113 +155,112 @@
                 <li><a href="index-2.html"><i class="la la-trash"></i>Delete Profile</a></li>
             </ul>
         </div> -->
-    </div>
-    <!-- End User Sidebar -->
+        </div>
+        <!-- End User Sidebar -->
 
-    <!--End Main Header -->
-		<router-outlet></router-outlet>
+        <!--End Main Header -->
+        <router-outlet></router-outlet>
         <!-- Main Footer -->
 
 
-   
-
-    <!-- Copyright -->
-    <div class="copyright-text">
-        <p>© 234Recruiters. All Right Reserved.</p>
-    </div>
-
-</div><!-- End Page Wrapper -->
 
 
-<script src="../../../../assets/js/jquery.js"></script> 
-<script src="../../../../assets/js/popper.min.js"></script>
-<script src="../../../../assets/js/chosen.min.js"></script>
-<script src="../../../../assets/js/bootstrap.min.js"></script>
-<script src="../../../../assets/js/jquery-ui.min.js"></script>
-<script src="../../../../assets/js/jquery.fancybox.js"></script>
-<script src="../../../../assets/js/jquery.modal.min.js"></script>
-<script src="../../../../assets/js/mmenu.polyfills.js"></script>
-<script src="../../../../assets/js/mmenu.js"></script>
-<script src="../../../../assets/js/appear.js"></script>
-<script src="../../../../assets/js/owl.js"></script>
-<script src="../../../../assets/js/wow.js"></script>
-<script src="../../../../assets/js/script.js"></script>
+        <!-- Copyright -->
+        <div class="copyright-text">
+            <p>© 234Recruiters. All Right Reserved.</p>
+        </div>
 
-<!-- Chart.js // documentation: http://www.chartjs.org/docs/latest/ -->
-<script src="js/chart.min.js"></script>
-<script>
-    Chart.defaults.global.defaultFontFamily = "Sofia Pro";
-    Chart.defaults.global.defaultFontColor = '#888';
-    Chart.defaults.global.defaultFontSize = '14';
+    </div><!-- End Page Wrapper -->
 
-    var ctx = document.getElementById('chart').getContext('2d');
 
-    var chart = new Chart(ctx, {
+    <script src="../../../../assets/js/jquery.js"></script>
+    <script src="../../../../assets/js/popper.min.js"></script>
+    <script src="../../../../assets/js/chosen.min.js"></script>
+    <script src="../../../../assets/js/bootstrap.min.js"></script>
+    <script src="../../../../assets/js/jquery-ui.min.js"></script>
+    <script src="../../../../assets/js/jquery.fancybox.js"></script>
+    <script src="../../../../assets/js/jquery.modal.min.js"></script>
+    <script src="../../../../assets/js/mmenu.polyfills.js"></script>
+    <script src="../../../../assets/js/mmenu.js"></script>
+    <script src="../../../../assets/js/appear.js"></script>
+    <script src="../../../../assets/js/owl.js"></script>
+    <script src="../../../../assets/js/wow.js"></script>
+    <script src="../../../../assets/js/script.js"></script>
 
-        type: 'line',
-        // The data for our dataset
-        data: {
-            labels: ["January", "February", "March", "April", "May", "June"],
-            // Information about the dataset
-            datasets: [{
-                label: "Views",
-                backgroundColor: 'transparent',
-                borderColor: '#1967D2',
-                borderWidth: "1",
-                data: [196,132,215,362,210,252],
-                pointRadius: 3,
-                pointHoverRadius:3,
-                pointHitRadius: 10,
-                pointBackgroundColor: "#1967D2",
-                pointHoverBackgroundColor: "#1967D2",
-                pointBorderWidth: "2",
-            }]
-        },
+    <!-- Chart.js // documentation: http://www.chartjs.org/docs/latest/ -->
+    <script src="js/chart.min.js"></script>
+    <script>
+        Chart.defaults.global.defaultFontFamily = "Sofia Pro";
+        Chart.defaults.global.defaultFontColor = '#888';
+        Chart.defaults.global.defaultFontSize = '14';
 
-        // Configuration options
-        options: {
+        var ctx = document.getElementById('chart').getContext('2d');
 
-            layout: {
-              padding: 10,
+        var chart = new Chart(ctx, {
+
+            type: 'line',
+            // The data for our dataset
+            data: {
+                labels: ["January", "February", "March", "April", "May", "June"],
+                // Information about the dataset
+                datasets: [{
+                    label: "Views",
+                    backgroundColor: 'transparent',
+                    borderColor: '#1967D2',
+                    borderWidth: "1",
+                    data: [196, 132, 215, 362, 210, 252],
+                    pointRadius: 3,
+                    pointHoverRadius: 3,
+                    pointHitRadius: 10,
+                    pointBackgroundColor: "#1967D2",
+                    pointHoverBackgroundColor: "#1967D2",
+                    pointBorderWidth: "2",
+                }]
             },
 
-            legend: { display: false },
-            title:  { display: false },
+            // Configuration options
+            options: {
 
-            scales: {
-                yAxes: [{
-                    scaleLabel: {
-                        display: false
-                    },
-                    gridLines: {
-                         borderDash: [6, 10],
-                         color: "#d8d8d8",
-                         lineWidth: 1,
-                    },
-                }],
-                xAxes: [{
-                    scaleLabel: { display: false },  
-                    gridLines:  { display: false },
-                }],
+                layout: {
+                    padding: 10,
+                },
+
+                legend: { display: false },
+                title: { display: false },
+
+                scales: {
+                    yAxes: [{
+                        scaleLabel: {
+                            display: false
+                        },
+                        gridLines: {
+                            borderDash: [6, 10],
+                            color: "#d8d8d8",
+                            lineWidth: 1,
+                        },
+                    }],
+                    xAxes: [{
+                        scaleLabel: { display: false },
+                        gridLines: { display: false },
+                    }],
+                },
+
+                tooltips: {
+                    backgroundColor: '#333',
+                    titleFontSize: 13,
+                    titleFontColor: '#fff',
+                    bodyFontColor: '#fff',
+                    bodyFontSize: 13,
+                    displayColors: false,
+                    xPadding: 10,
+                    yPadding: 10,
+                    intersect: false
+                }
             },
+        });
 
-            tooltips: {
-              backgroundColor: '#333',
-              titleFontSize: 13,
-              titleFontColor: '#fff',
-              bodyFontColor: '#fff',
-              bodyFontSize: 13,
-              displayColors: false,
-              xPadding: 10,
-              yPadding: 10,
-              intersect: false
-            }
-        },
-    });
-
-</script>
+    </script>
 
 </body>
+
 </html>
-
-

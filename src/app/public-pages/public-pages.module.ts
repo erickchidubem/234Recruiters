@@ -24,12 +24,13 @@ const routes: Routes = [
     {path:'about-us', component : AboutUsComponent},
     {path:'terms', component : TermsComponent},
     {path:'faq', component : FaqComponent},
-    {path:'contact', component:ContactComponent},
-    {path:'job-single/:id', component: JobSingleComponent},
-    {path:'job-search/:keyword/:location/:category',component:JobSearchComponent}
+    {path:'contact', component : ContactComponent},
+    {path:'job-single/:id', component : JobSingleComponent},
+    {path:'job-search/:keyword/:location/:category', component : JobSearchComponent},
 
     // { path: 'password-reset/:id/:date/:date2/:datediff', component : ResetPasswordComponent}
     // // { path : 'service-call/:id', component:ServiceTicketComponent},
+    { path: '**', component: ErrorComponent }
     
  ]; 
 

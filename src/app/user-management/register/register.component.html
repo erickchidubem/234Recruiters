@@ -48,7 +48,11 @@
                 <!--Nav Outer -->
                 <div class="nav-outer">
                     <div class="logo-box">
-                        <div class="logo"><a routerLink="/home"><img src="assets/images/logo-2.svg" alt="" title=""></a></div>
+                        <div class="logo">
+                            <a routerLink="/home">
+                                <img src="assets/images/234recruiter.png" alt="" width="154" height="50" title="">
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -64,7 +68,11 @@
 
         <!-- Mobile Header -->
         <div class="mobile-header">
-            <div class="logo"><a routerLink="/home"><img src="assets/images/logo.svg" alt="" title=""></a></div>
+            <div class="logo">
+                <a routerLink="/home">
+                    <img src="assets/images/234recruiter.png" alt="" width="154" height="50" title="">
+                </a>
+            </div>
         </div>
 
         <!-- Mobile Nav -->
@@ -118,12 +126,10 @@
                         
                         <div class="form-group">
                             <label>Password</label>
-                            <div class="input-group input-group-merge">
-                                <input type="password" id="password" class="form-control" placeholder="Enter password" formControlName="password" [ngClass]="{'is-invalid':submitted && f.password.errors}">
-                                <div class="input-group-append" data-password="{toggle1}" id="password-eye-1" (click)="toggleBar(1)">
-                                    <div class="input-group-text">
-                                        <span class="password-eye"></span>
-                                    </div>
+                            <div style="position: relative;">
+                                <input [type]="!toggle1 ? 'password' : 'text'" id="password" class="form-control" placeholder="Enter password" formControlName="password" [ngClass]="{'is-invalid':submitted && f.password.errors}">
+                                <div style="position: absolute; top: 15; right: 15; cursor: pointer;" data-password="{toggle1}" id="password-eye-1" (click)="toggle1 = !toggle1">
+                                    <span class="fa " [ngClass]="{'fa-eye': !toggle1, 'fa-eye-slash': toggle1}"></span>
                                 </div>
                                 <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                                     <div *ngIf="f.password.errors.required">this field is required</div>
@@ -136,12 +142,10 @@
 
                         <div class="form-group">
                             <label>Confirm Password</label>
-                            <div class="input-group input-group-merge">
-                                <input type="password" id="password-2" class="form-control" placeholder="Confirm password" formControlName="password2" [ngClass]="{'is-invalid':submitted && f.password2.errors}">
-                                <div class="input-group-append" data-password="{toggle2}" id="password-eye-2" (click)="toggleBar(2)">
-                                    <div class="input-group-text">
-                                        <span class="password-eye"></span>
-                                    </div>
+                            <div  style="position: relative;">
+                                <input [type]="!toggle2 ? 'password' : 'text'" id="password-2" class="form-control" placeholder="Confirm password" formControlName="password2" [ngClass]="{'is-invalid':submitted && f.password2.errors}">
+                                <div style="position: absolute; top: 15; right: 15; cursor: pointer;" data-password="{toggle2}" id="password-eye-2" (click)="toggle2 = !toggle2">
+                                    <span class="fa " [ngClass]="{'fa-eye': !toggle2, 'fa-eye-slash': toggle2}"></span>
                                 </div>
                     
                                 <div *ngIf="submitted && f.password2.errors" class="invalid-feedback">

@@ -1591,7 +1591,7 @@ Buttons Styles
     position: relative;
     text-align: center;
     white-space: nowrap;
-    color: #34A853;
+    color: #34A853 !important;
     background-color: #E1F2E5;
     font-size: 16px;
     line-height: 20px;
@@ -1601,7 +1601,7 @@ Buttons Styles
 }
 
 .btn-style-four:hover{
-    color: #FFFFFF;
+    color: #FFFFFF !important;
     background-color: #34A853;
 }
 
@@ -1648,7 +1648,7 @@ Buttons Styles
     position: relative;
     text-align: center;
     white-space: nowrap;
-    color: #ffffff;
+    color: #ffffff !important;
     background-color: #34A853;
     line-height: 20px;
     border-radius: 8px;
@@ -1657,7 +1657,7 @@ Buttons Styles
 }
 
 .btn-style-seven:hover{
-    color: #34A853;
+    color: #34A853 !important;
     background-color: #E1F2E5;
 }
 

@@ -56,7 +56,11 @@
                 <!--Nav Outer -->
                 <div class="nav-outer">
                     <div class="logo-box">
-                        <div class="logo"><a routerLink="/home"><img src="../../../assets/images/logo-2.svg" alt="" title=""></a></div>
+                        <div class="logo">
+                            <a routerLink="/home">
+                                <img src="assets/images/234recruiter.png" alt="" width="154" height="50" title="">
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -66,7 +70,11 @@
 
         <!-- Mobile Header -->
         <div class="mobile-header">
-            <div class="logo"><a routerLink="/home"><img src="../../../assets/images/logo.svg" alt="" title=""></a></div>
+            <div class="logo">
+                <a routerLink="/home">
+                    <img src="assets/images/234recruiter.png" alt="" width="154" height="50" title="">
+                </a>
+            </div>
         </div>
 
         <!-- Mobile Nav -->
@@ -76,7 +84,7 @@
 
     <!-- Info Section -->
     <div class="login-section">
-        <div class="image-layer" style="background-image: url(../../../assets/images/background/12.jpg);"></div>
+        <div class="image-layer" style="background-image: url(assets/images/background/12.jpg);"></div>
         <div class="outer-box">
              <!-- Login Form -->
             <div class="login-form default-form">
@@ -98,13 +106,10 @@
                         <div class="form-group">
                             <label>Password</label>
                             <!-- <input id="password-field" type="password" name="password" value="" placeholder="Password"> -->
-                            <div class="input-group input-group-merge">
-            
-                                <input type="password" id="password" class="form-control" formControlName="password" placeholder="Enter your password" [ngClass]="{'is-invalid':submitted && f.password.errors}">
-                                <div id="password-eye" (click)="toggleBar()" class="input-group-append" data-password="{toggle}">
-                                    <div class="input-group-text">
-                                        <span class="password-eye"></span>
-                                    </div>
+                            <div style="position: relative;">            
+                                <input style="padding-right: 45px;" [type]="toggle ? 'password' : 'text'" id="password" class="form-control" formControlName="password" placeholder="Enter your password" [ngClass]="{'is-invalid':submitted && f.password.errors}">
+                                <div (click)="toggle = !toggle" style="position: absolute; cursor: pointer; top: 15; right: 15;">
+                                    <i class="fa fa-1x " [ngClass]="{'fa-eye': toggle, 'fa-eye-slash': !toggle}"></i>  
                                 </div>
                                 <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                                     <div *ngIf="f.password.errors.required">this field is required</div>

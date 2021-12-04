@@ -41,12 +41,20 @@ export class Constants {
     return headers;
   }
 
-  GetHttpHeadersToken2(): HttpHeaders {
-    const headers = new HttpHeaders()
-      .set("content-type", "multipart/form-data")
-      .set("APIKEY", this.GetAPIKEY())
-      .set("Authorization", "Bearer " + this.GetToken());
-    return headers;
+  GetHttpHeadersToken2(contentType = "multipart/form-data"): HttpHeaders {
+    
+    if (contentType != null) {
+      const headers = new HttpHeaders()
+        .set("content-type", contentType)
+        .set("APIKEY", this.GetAPIKEY())
+        .set("Authorization", "Bearer " + this.GetToken());
+      return headers;
+    } else {
+      const headers = new HttpHeaders()
+        .set("APIKEY", this.GetAPIKEY())
+        .set("Authorization", "Bearer " + this.GetToken());
+      return headers;
+    }
   }
 
   GetHttpHeadersAnonymous(): HttpHeaders {

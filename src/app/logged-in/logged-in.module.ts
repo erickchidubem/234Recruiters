@@ -1,78 +1,73 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { NgxUiLoaderModule } from 'ngx-ui-loader';
-import { FormsModule,ReactiveFormsModule }   from '@angular/forms';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { NgxUiLoaderModule } from "ngx-ui-loader";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 //import {SharedModule} from '../shared/shared.module';
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
-import { CommonModule } from '@angular/common';
-import { LottieModule } from 'ngx-lottie';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { DashboardGeneralAdminComponent } from './dashboard/dashboard-general-admin/dashboard-general-admin.component';
-import { DashboardIndividualComponent } from './dashboard/dashboard-individual/dashboard-individual.component';
-import { AnQrcodeModule } from 'an-qrcode';
-import { ChartsModule } from 'ng2-charts';
-import { DashboardEntityComponent } from './dashboard/dashboard-entity/dashboard-entity.component';
-import { NgSelect2Module } from 'ng-select2';
-import { UserProfileComponent } from './user-profile/user-profile.component';
-import { PostAJobComponent } from './post-a-job/post-a-job.component';
-import { JobSingleComponent } from '../public-pages/job-single/job-single.component';
-import { JobSearchComponent } from '../public-pages/job-search/job-search.component';
-import { UploadCvComponent } from './upload-cv/upload-cv.component';
+import { CommonModule } from "@angular/common";
+import { LottieModule } from "ngx-lottie";
+import { DashboardComponent } from "./dashboard/dashboard.component";
+import { DashboardGeneralAdminComponent } from "./dashboard/dashboard-general-admin/dashboard-general-admin.component";
+import { DashboardIndividualComponent } from "./dashboard/dashboard-individual/dashboard-individual.component";
+import { AnQrcodeModule } from "an-qrcode";
+import { ChartsModule } from "ng2-charts";
+import { DashboardEntityComponent } from "./dashboard/dashboard-entity/dashboard-entity.component";
+import { NgSelect2Module } from "ng-select2";
+import { UserProfileComponent } from "./user-profile/user-profile.component";
+import { PostAJobComponent } from "./post-a-job/post-a-job.component";
+import { JobSingleComponent } from "../public-pages/job-single/job-single.component";
+import { JobSearchComponent } from "../public-pages/job-search/job-search.component";
+import { UploadCvComponent } from "./upload-cv/upload-cv.component";
 
 const routes: Routes = [
-    {path : '',component:DashboardComponent},
-    
-    { path : 'user-profile', component:UserProfileComponent},
-    { path : 'post-a-job', component:PostAJobComponent},
-    { path : 'edit-a-job/:id', component:PostAJobComponent},
-    {path:'job-single/:id', component: JobSingleComponent},
-    {path:'job-search/:keyword/:location/:category',component:JobSearchComponent},
-    {path: 'upload-cv',component:UploadCvComponent}
-    // { path : 'delivery-note/:id/:salesid', component : DeliveryTicketComponent}
-     
- ];  
+  { path: "", component: DashboardComponent },
 
- export function playerFactory() {
-  return import('lottie-web');
+  { path: "user-profile", component: UserProfileComponent },
+  { path: "post-a-job", component: PostAJobComponent },
+  { path: "edit-a-job/:id", component: PostAJobComponent },
+  { path: "job-single/:id", component: JobSingleComponent },
+  {
+    path: "job-search/:keyword/:location/:category",
+    component: JobSearchComponent,
+  },
+  { path: "upload-cv", component: UploadCvComponent },
+  // { path : 'delivery-note/:id/:salesid', component : DeliveryTicketComponent}
+];
+
+export function playerFactory() {
+  return import("lottie-web");
 }
-@NgModule({ 
-  
+@NgModule({
   imports: [
-   // SharedModule,
+    // SharedModule,
     AnQrcodeModule,
     NgxUiLoaderModule,
     RouterModule.forChild(routes),
     FormsModule,
     NgSelect2Module,
-    ReactiveFormsModule,CommonModule,
+    ReactiveFormsModule,
+    CommonModule,
     LottieModule.forRoot({ player: playerFactory }),
     GooglePlaceModule,
     ChartsModule,
-    
   ],
 
-  exports : [
-    RouterModule,NgxUiLoaderModule,GooglePlaceModule,AnQrcodeModule
-  ],
- 
+  exports: [RouterModule, NgxUiLoaderModule, GooglePlaceModule, AnQrcodeModule],
+
   declarations: [
+    DashboardComponent,
 
-   
-DashboardComponent,
-   
-DashboardGeneralAdminComponent,
-   
-DashboardIndividualComponent,
-   
-DashboardEntityComponent,
-   
-UserProfileComponent,
-   
+    DashboardGeneralAdminComponent,
 
-PostAJobComponent,
-   
+    DashboardIndividualComponent,
 
-UploadCvComponent],
+    DashboardEntityComponent,
 
+    UserProfileComponent,
+
+    PostAJobComponent,
+
+    UploadCvComponent,
+  ],
 })
-export class LoggedInModule { }
+export class LoggedInModule {}

@@ -9,12 +9,12 @@ import { ActivatedRoute } from '@angular/router';
 export class PublicLayoutComponent implements OnInit {
 
   constructor(private route:ActivatedRoute) { 
-    console.log('constructor : '+route);
+    // console.log('constructor : '+route);
     
   }
 
   ngOnInit(): void {
-    console.log('NGONINT : '+this.route);
+    // console.log('NGONINT : '+this.route);
   }
 
 }

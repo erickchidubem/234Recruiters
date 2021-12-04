@@ -18,7 +18,8 @@
                         <li><a routerLink="/home/faq"><span>FAQ</span></a></li>
                         <li><a routerLink="/home/contact"><span>Contact</span></a></li>
                         <ng-container *ngIf="!userInfo">
-                            <li class="current"> <a routerLink="/public-user/register"><span>Sign Up</span></a></li>
+                            <!-- current -->
+                            <li class=""> <a routerLink="/public-user/register"><span>Sign Up</span></a></li>
                             <li class=""> <a routerLink="/public-user/login"> <span>Sign In</span></a></li>
                         </ng-container>                        
                         <!-- Only for Mobile View -->
@@ -48,8 +49,8 @@
             <div class="outer-box">
                 <!-- Login/Register -->
                 <div class="btn-box"> 
-                    <a href="login-popup.html" class="theme-btn btn-style-six call-modal" *ngIf="!userInfo">Login / Register</a> 
-                    <a href="dashboard-post-job.html" class="theme-btn btn-style-two">
+                    <a routerLink="/public-user/login" class="theme-btn btn-style-six call-modal" *ngIf="!userInfo">Login / Register</a> 
+                    <a routerLink="/access/post-a-job" class="theme-btn btn-style-two">
                         <span class="btn-title">Job Post</span>
                     </a> 
                 </div>

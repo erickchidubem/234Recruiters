@@ -1,164 +1,92 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
-import { ContextService } from 'src/app/shared/services/context.service';
-import { Utils } from 'src/app/shared/services/utils';
+import { Component, OnInit } from "@angular/core";
+import {
+  FormControl,
+  FormGroup,
+  Validators,
+} from "@angular/forms";
+import { Router } from "@angular/router";
+import { ToastrService } from "ngx-toastr";
+import { UserInfo } from "src/app/models/api-response";
+import { ContextService } from "src/app/shared/services/context.service";
+import { Utils } from "src/app/shared/services/utils";
 
 @Component({
-  selector: 'app-upload-cv',
-  templateUrl: './upload-cv.component.html',
-  styleUrls: ['./upload-cv.component.css']
+  selector: "app-upload-cv",
+  templateUrl: "./upload-cv.component.html",
+  styleUrls: ["./upload-cv.component.css"],
 })
 export class UploadCvComponent implements OnInit {
+  cvForm: FormGroup;
+  userInfo: UserInfo;
+  submitted: boolean = false;
+  constructor(
+    private utils: Utils,
+    private context: ContextService,
+    private router: Router,
+    private toaster: ToastrService
+  ) {}
 
- 
-  constructor(private fb : FormBuilder, private utils : Utils, private context : ContextService,
-    private router : Router, private toaster : ToastrService) { }
-
-  
   ngOnInit(): void {
-    this.generateForm();
-    this.setUp();
+    this.userInfo = this.utils.getUserFromToken();
+    this.cvFormInit(this.userInfo.userid);
   }
 
   handleFileInput(event) {
-    console.log(event)
+    // console.log(event)
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      this.form.patchValue({
-        fileSource: file
-      });
+      this.cvForm.get("fileSource").patchValue(file);
     }
-}
-fileToUpload: File | null = null;
+  }
 
-
-  get f() {return this.form.controls;}
-
-  categories : any= [];
-  states : any = [];
-  jobDetails :any =[];
-  userProfile : any;
-  userRole : string = "";
-  the_type : string = "";
-  setUp(){
-    this.context.getWithToken('','Jobs/GetJobsCategory').
-      subscribe( data => {
-      let d = <any>data; 
-      console.log(d)
-      this.categories = d.responseObject;
-    });
-
-    this.context.getWithToken('','Jobs/GetStates').
-      subscribe( data => {
-      let d = <any>data; 
-      console.log(d)
-      this.states = d.responseObject;  
-    });
-
-    this.context.getWithToken('','UserProfile/GetUserProfile').
-       subscribe( data => {
-      let d = <any>data; 
-      console.log(d)
-      this.userRole = d.responseObject.userRole;
-      this.userProfile = d.responseObject.userProfile;
-      if(this.userRole == "EMPLOYER"){
-        this.the_type = "Our Company";
-        this.form.patchValue({
-          firstName:"Employer", lastName:"Employer",
-          userId : this.utils.getUserFromToken().userid,
-          isIndividual : false
-        })
-      }else if (this.userRole =="CANDIDATE"){
-        this.the_type = "Me";
-        this.form.patchValue({
-          companyName : "Candidate",
-          userId : this.utils.getUserFromToken().userid,
-          isIndividual : true
-        })
-      }
-
-      if(this.userProfile != null){
-        this.form.patchValue({
-          firstName : this.userProfile.firstName,
-          lastName : this.userProfile.lastName,
-          companyName : this.userProfile.companyName,
-          phone : this.userProfile.phone,
-          email : this.userProfile.email,
-          briefDescription : this.userProfile.briefDescription,
-          primaryIndustry : this.userProfile.primaryIndustry,
-          address : this.userProfile.address,
-          website : this.userProfile.website,
-          stateOfResidence : this.userProfile.stateOfResidence,
-          doneNYSC : ""+this.userProfile.doneNYSC+"",
-          higestQualification : this.userProfile.higestQualification
-        })
-      }
-      
+  cvFormInit(userId: string) {
+    this.cvForm = new FormGroup({
+      Id: new FormControl(0, []),
+      userId: new FormControl(userId, [Validators.required]),
+      NamedCV: new FormControl("", [Validators.required]),
+      file: new FormControl("", []),
+      fileSource: new FormControl("", [Validators.required]),
     });
   }
 
-
-  form : FormGroup;
-  generateForm(){
-    this.form = this.fb.group({
-      Id:0,
-      userId : 0,
-      NamedCV : ['',[Validators.required]],
-      file:  ['',[Validators.required]],
-      fileSource: []
-    });
-  }
-
-
-  submitted : boolean = false;
-  Submit(){
-  
+  Submit() {
     this.submitted = true;
-    if(this.form.invalid){return;}
- 
+    if (this.cvForm.invalid) {
+      return;
+    }
+
     this.utils.StartSpinner();
 
-    
-    //const formData = new FormData();
-   // formData.append('namedCV',this.form.get('NamedCV').value);
-   // formData.append('file', this.form.get('fileSource').value);
-    
+    let formValue = this.cvForm.value;
+    let formData = new FormData();
 
-   
-    let formData = this.form.value;
-    let nData = new FormData();
-    
-    nData.append('fileSource', this.form.get('fileSource').value);
-    //nData.append('namedCV',this.form.get('NamedCV').value)
-    //console.log(this.form.get('fileSource').value)
-    console.log(nData)
-    nData.forEach(x=>console.log(x));
-    
-    this.context.postWithToken2(nData,'UserProfile/UploadCV',).
-                    subscribe((response)=>{ 
-                              this.utils.StopSpinner();                        
-                              let data = <any>response;
-                              console.log(data)
-                              if(data.responseCode =="99"){
-                                this.toaster.error(data.responseFriendlyMessage)
-                              }else{
-                                this.submitted = false;
-                                this.form.reset();
-                                this.toaster.success(data.responseFriendlyMessage);
-                                this.router.navigate(['access/'])                                
-                              }                        
-                    },
-                    err => {
-                          this.utils.StopSpinner();                              
-                          console.log('Error Message : '+err.message);
-                          console.log('Error : '+err.status);
-                          console.log (err.error)
-                          this.toaster.error(err.error.responseFriendlyMessage)
-                                  
-                    }
-                  );               
-       }
+    for (const key in formValue) {
+      if (Object.prototype.hasOwnProperty.call(formValue, key)) {
+        formData.append(key, formValue[key]);        
+      }
+    }
 
+    this.context.postWithToken2(formData, "UserProfile/UploadCV", null).subscribe(
+      (response) => {
+        this.utils.StopSpinner();
+        let data = <any>response;
+        // console.log(data);
+        if (data.responseCode == "99") {
+          this.toaster.error(data.responseFriendlyMessage);
+        } else {
+          this.submitted = false;
+          this.cvForm.reset();
+          this.toaster.success(data.responseFriendlyMessage);
+          this.router.navigate(["access/"]);
+        }
+      },
+      (err) => {
+        this.utils.StopSpinner();
+        // console.log("Error Message : " + err.message);
+        // console.log("Error : " + err.status);
+        // console.log(err.error);
+        this.toaster.error(err.error.responseFriendlyMessage);
+      }
+    );
+  }
 }

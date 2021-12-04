@@ -34,12 +34,12 @@ export class HomeComponent implements OnInit {
 
   submit() {
     let formData = <any>JSON.stringify(this.form.value);
-    console.log(formData);
+    // console.log(formData);
     //job-search/:keyword/:location/:category
     let keyword = this.getEmptyValue(this.form.get("keyword").value);
     let location = this.getEmptyValue(this.form.get("location").value);
     let category = this.getEmptyValue(this.form.get("category").value);
-    console.log(keyword);
+    // console.log(keyword);
     this.router.navigate([
       "/home/job-search/" + keyword + "/" + location + "/" + category,
     ]);
@@ -59,13 +59,13 @@ export class HomeComponent implements OnInit {
   setUp() {
     this.context.getWithToken("", "Jobs/GetJobsCategory").subscribe((data) => {
       let d = <any>data;
-      console.log(d);
+      // console.log(d);
       this.categories = d.responseObject;
     });
 
     this.context.getWithToken("", "Jobs/GetStates").subscribe((data) => {
       let d = <any>data;
-      console.log(d);
+      // console.log(d);
       this.states = d.responseObject;
     });
 
@@ -73,7 +73,7 @@ export class HomeComponent implements OnInit {
       .getWithToken("", "Jobs/GetJobs?PageNum=0")
       .subscribe((data) => {
         let d = <any>data;
-        console.log(d);
+        // console.log(d);
         this.jobDetails = d.responseObject.data;
       });
   }

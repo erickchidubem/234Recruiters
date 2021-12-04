@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserInfo } from 'src/app/models/api-response';
 import { Utils } from '../../shared/services/utils';
 
 @Component({
@@ -7,11 +8,12 @@ import { Utils } from '../../shared/services/utils';
   styleUrls: ['./public-header.component.css']
 })
 export class PublicHeaderComponent implements OnInit {
-  userInfo: any;
+  userInfo: UserInfo;
   constructor(private util: Utils) { }
 
   ngOnInit(): void {
     this.userInfo = this.util.getUserFromToken();
+    // console.log(this.userInfo);
   }
 
 }

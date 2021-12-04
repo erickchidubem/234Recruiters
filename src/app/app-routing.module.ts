@@ -4,6 +4,7 @@ import { BodyContentComponent } from "./shared/loggedin-layout/body-content/body
 import { PublicLayoutComponent } from "./public-pages/public-layout/public-layout.component";
 import { InternalAuthGuard } from "./shared/auth-guards/internal-auth-guard";
 import { NgxUiLoaderModule } from "ngx-ui-loader";
+import { CommonModule } from "@angular/common";
 const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
   {
@@ -42,6 +43,7 @@ const routes: Routes = [
     // NgxUiLoaderModule,
     // ToastrModule.forRoot(),
     // PasswordStrengthMeterModule
+    CommonModule
   ],
   exports: [
     RouterModule,

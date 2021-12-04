@@ -14,27 +14,27 @@ export class InternalAuthGuard implements CanActivate,CanActivateChild {
   }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     var token = this.utils.getToken();   
-    console.log(token);
+    // console.log(token);
     if(token != null){
       if (!this.jwtHelper.isTokenExpired(token)){
           //confirm token again db
             return true;
           }
     }    
-     this.router.navigate(["login"]);
+     this.router.navigate(["/public-user/login"]);
      return false;
   }
   
   
   canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
     var token = this.utils.getToken();   
-    console.log(token);
+    // console.log(token);
     if(token != null){
       if (!this.jwtHelper.isTokenExpired(token)){
             return true;
           }
     }    
-     this.router.navigate(["login"]);
+     this.router.navigate(["/public-user/login"]);
      return false;
   }
 }

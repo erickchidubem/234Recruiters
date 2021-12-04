@@ -6,6 +6,7 @@ import { Location } from "@angular/common";
 import { ContextService } from "./context.service";
 import { Constants } from "./constants";
 import { JwtHelperService } from "@auth0/angular-jwt";
+import { UserInfo } from "src/app/models/api-response";
 declare var $: any;
 
 @Injectable()
@@ -30,7 +31,8 @@ export class Utils {
     console.log(value);
     return value; //value.context.user[0];
   }
-  getUserFromToken() {
+
+  getUserFromToken(): UserInfo {
     if (localStorage.getItem("token") != null) {
       let token = this.getToken(); //atob(atob(atob(atob(localStorage.getItem("token")))));
       let value = <any>this.jwtHelper.decodeToken(token);

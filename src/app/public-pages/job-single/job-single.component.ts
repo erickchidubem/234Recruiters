@@ -36,7 +36,7 @@ export class JobSingleComponent implements OnInit {
     this.context.getWithToken(this.id,'Jobs/GetSingleJob?Id=').
     subscribe( data => {
       let d = <any>data; 
-      console.log(d)
+      // console.log(d)
       this.jobDetails = d.responseObject;
      // this.utils.StopSpinner();
     });

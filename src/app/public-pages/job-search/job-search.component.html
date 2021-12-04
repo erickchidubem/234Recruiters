@@ -1,23 +1,24 @@
 <section class="page-title style-two">
     <div class="auto-container">
         <!-- Job Search Form -->
-        <div class="job-search-form"> 
+        <div class="job-search-form">
             <form [formGroup]="form" (ngSubmit)="submit()">
                 <div class="row">
                     <!-- Form Group -->
                     <div class="form-group col-lg-4 col-md-12 col-sm-12">
                         <span class="icon flaticon-search-1"></span>
-                        <input type="text" formControlName="keyword" id="keyword" placeholder="Job title, keywords, or company">
+                        <input type="text" formControlName="keyword" id="keyword"
+                            placeholder="Job title, keywords, or company">
                     </div>
-                    
+
                     <!-- Form Group -->
                     <div class="form-group col-lg-3 col-md-12 col-sm-12 location">
                         <span class="icon flaticon-map-locator"></span>
                         <select class="chosen-select" formControlName="location" id="location">
                             <option value="-all-">All States</option>
                             <option value="c" *ngFor="let c of states;let i = index">{{c}}</option>
-                        
-                        </select> 
+
+                        </select>
                     </div>
 
                     <!-- Form Group -->
@@ -26,7 +27,7 @@
                         <select class="chosen-select" formControlName="category" id="category">
                             <option value="-all-">All Categories</option>
                             <option value="c.id" *ngFor="let c of categories;let i = index">{{c.category}}</option>
-                        
+
                         </select>
                     </div>
 
@@ -41,17 +42,17 @@
     </div>
 </section>
 <!--End Page Title-->
- 
-    <!-- Listing Section -->
+
+<!-- Listing Section -->
 <section class="ls-section">
     <div class="auto-container">
         <div class="filters-backdrop"></div>
-        
+
         <div class="row">
-           
+
             <div class="content-column col-lg-12">
                 <div class="ls-outer">
-                   
+
                     <!-- <div class="ls-switcher">
                         <div class="showing-result">
                             <div class="top-filters">
@@ -127,35 +128,41 @@
                     </div> -->
 
                     <div class="row">
-                       
-                      
-                      <ng-container *ngFor="let c of jobDetails">
 
-                    
-                        <div class="job-block col-lg-6 col-md-12 col-sm-12">
-                            <div class="inner-box">
-                                <div class="content">
-                                    <span class="company-logo">
-                                        <!-- <img src="images/resource/company-logo/1-2.png" alt=""> -->
-                                    </span>
-                                    <h4><a routerLink="/home/job-single/{{c.id}}">{{c.jobTitle}}</a></h4>
-                                    <ul class="job-info">
-                                        <!-- <li><span class="icon flaticon-briefcase"></span> Segment</li> -->
-                                        <li><span class="icon flaticon-map-locator"></span> <a routerLink="/home/job-single/{{c.id}}">{{c.jobLocation}}</a></li>
-                                        <li><span class="icon flaticon-clock-3"></span> <a routerLink="/home/job-single/{{c.id}}">{{c.createdDate | date:'EEEE, d, MMMM, yyyy'}}</a></li>
-                                        <li><span class="icon flaticon-money"></span><a routerLink="/home/job-single/{{c.id}}"> {{utils.getCurrency()}} {{c.salaryRangeFrom | number:'.2'}} - {{utils.getCurrency()}}{{c.salaryRangeTo | number:'.2'}}</a></li>
-                                    </ul>
-                                    <ul class="job-other-info">
-                                        <!-- <li class="time">Full Time</li> -->
-                                        <li *ngIf="c.urgency" class="required">URGENT</li>
-                                        <li class="time">{{c.jobType}}</li>
-                                    </ul>
-                                    <button class="bookmark-btn"><span class="flaticon-bookmark"></span></button>
+
+                        <ng-container *ngFor="let c of jobDetails">
+
+
+                            <div class="job-block col-lg-6 col-md-12 col-sm-12">
+                                <div class="inner-box">
+                                    <div class="content">
+                                        <span class="company-logo">
+                                            <!-- <img src="images/resource/company-logo/1-2.png" alt=""> -->
+                                        </span>
+                                        <h4><a routerLink="/home/job-single/{{c.id}}">{{c.jobTitle}}</a></h4>
+                                        <ul class="job-info">
+                                            <!-- <li><span class="icon flaticon-briefcase"></span> Segment</li> -->
+                                            <li><span class="icon flaticon-map-locator"></span> <a
+                                                    routerLink="/home/job-single/{{c.id}}">{{c.jobLocation}}</a></li>
+                                            <li><span class="icon flaticon-clock-3"></span> <a
+                                                    routerLink="/home/job-single/{{c.id}}">
+                                                    {{c.createdDate | date:'EEEE, d, MMMM, yyyy'}}</a></li>
+                                            <li><span class="icon flaticon-money"></span><a
+                                                    routerLink="/home/job-single/{{c.id}}"> {{utils.getCurrency()}}
+                                                    {{c.salaryRangeFrom | number:'.2'}} -
+                                                    {{utils.getCurrency()}}{{c.salaryRangeTo | number:'.2'}}</a></li>
+                                        </ul>
+                                        <ul class="job-other-info">
+                                            <!-- <li class="time">Full Time</li> -->
+                                            <li *ngIf="c.urgency" class="required">URGENT</li>
+                                            <li class="time">{{c.jobType}}</li>
+                                        </ul>
+                                        <button class="bookmark-btn"><span class="flaticon-bookmark"></span></button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                      </ng-container>
-                       
+                        </ng-container>
+
                     </div>
 
                     <!-- Pagination -->

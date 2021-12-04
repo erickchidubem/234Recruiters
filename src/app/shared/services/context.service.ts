@@ -31,9 +31,9 @@ export class ContextService {
     });
   }
 
-  postWithToken2(DataObject: any, SubAPIURL: string) {
+  postWithToken2(DataObject: any, SubAPIURL: string, contentType = "multipart/form-data") {
     return this.http.post<any>(this.config.apiUrl + SubAPIURL, DataObject, {
-      headers: this.config.GetHttpHeadersToken2(),
+      headers: this.config.GetHttpHeadersToken2(contentType),
     });
   }
 

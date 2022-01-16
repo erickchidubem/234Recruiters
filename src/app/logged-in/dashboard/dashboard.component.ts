@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Candidate, Employer } from "src/app/models/api-response";
 import { Utils } from "src/app/shared/services/utils";
 
 @Component({
@@ -12,9 +13,9 @@ export class DashboardComponent implements OnInit {
   constructor(private utils: Utils) {}  
   ngOnInit(): void {
     // console.log(this.utils.getUserFromToken().userrole);
-    if (this.utils.getUserFromToken().userrole == "EMPLOYER") {
+    if (this.utils.getUserFromToken().userrole == Employer) {
       this.viewAdminDashboard = true;
-    } else if (this.utils.getUserFromToken().userrole == "CANDIDATE") {
+    } else if (this.utils.getUserFromToken().userrole == Candidate) {
       this.viewCandidateDashboard = true;
     }
   }

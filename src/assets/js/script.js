@@ -699,17 +699,17 @@
 	})
 
 	// Open modal in AJAX callback
-	$('.call-modal').on('click', function(event) {
-	  event.preventDefault();
-	  this.blur();
-	  $.get(this.href, function(html) {
-	    $(html).appendTo('body').modal({
-	    	closeExisting: true,
-			fadeDuration: 300,
-			fadeDelay: 0.15
-	    });
-	  });
-	});
+	// $('.call-modal').on('click', function(event) {
+	//   event.preventDefault();
+	//   this.blur();
+	//   $.get(this.href, function(html) {
+	//     $(html).appendTo('body').modal({
+	//     	closeExisting: true,
+	// 		fadeDuration: 300,
+	// 		fadeDelay: 0.15
+	//     });
+	//   });
+	// });
 
 
 	//Message Box

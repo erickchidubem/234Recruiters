@@ -136,7 +136,7 @@
                 </li>
                 <li routerLinkActive="active"><a [routerLink]="['/access/user-profile']"><i
                             class="la la-user-tie"></i> Profile</a></li>
-                <li routerLinkActive="active" *ngIf="role == Employer">
+                <li routerLinkActive="active" *ngIf="role != Candidate">
                     <a [routerLink]="['/access/post-a-job']">
                         <i class="la la-paper-plane"></i> Post a New Job</a>
                 </li>

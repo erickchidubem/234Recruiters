@@ -15,6 +15,7 @@ import { JobSearchComponent } from './job-search/job-search.component';
 import { ErrorComponent } from './error/error.component';
 import { SharedModule } from '../shared/shared.module';
 import { PublicHeaderComponent } from './public-header/public-header.component';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 //import { LottieModule } from 'ngx-lottie';
 
 
@@ -45,11 +46,12 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     FormsModule,
     ReactiveFormsModule,CommonModule,
+    NgbModalModule,
    // LottieModule.forRoot({ player: playerFactory })
   ],
 
   exports : [
-    RouterModule,NgxUiLoaderModule
+    RouterModule, NgxUiLoaderModule
   ],
  
   declarations: [

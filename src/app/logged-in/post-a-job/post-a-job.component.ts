@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
+import { Candidate } from "src/app/models/api-response";
 import { ContextService } from "src/app/shared/services/context.service";
 import { Utils } from "src/app/shared/services/utils";
 
@@ -11,6 +12,7 @@ import { Utils } from "src/app/shared/services/utils";
   styleUrls: ["./post-a-job.component.css"],
 })
 export class PostAJobComponent implements OnInit {
+  userInfo: any;
   constructor(
     private fb: FormBuilder,
     private utils: Utils,
@@ -23,12 +25,17 @@ export class PostAJobComponent implements OnInit {
   action: string = "Post";
   id = 0;
   ngOnInit(): void {
-    this.id = this.route.params["value"].id;
-    if (this.id > 0) {
-      this.action = "Edit";
+    this.userInfo = this.utils.getUserFromToken();
+    if (this.userInfo.userrole != Candidate) {
+      this.id = this.route.params["value"].id;
+      if (this.id > 0) {
+        this.action = "Edit";
+      }
+      this.generateForm();
+      this.setUp();
+    } else {
+      this.router.navigateByUrl("/access");
     }
-    this.generateForm();
-    this.setUp();
   }
 
   get f() {

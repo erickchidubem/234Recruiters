@@ -162,16 +162,7 @@
 	}
 }
 
-
-
-
-
-
-
-
-
-
-@media only screen and (max-width: 1366px){
+@media only screen and (max-width: 768px){
 	.main-header .outer-box .upload-cv{
 		margin-right: 0;
 	}

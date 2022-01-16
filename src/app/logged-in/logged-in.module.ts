@@ -18,13 +18,14 @@ import { PostAJobComponent } from "./post-a-job/post-a-job.component";
 import { JobSingleComponent } from "../public-pages/job-single/job-single.component";
 import { JobSearchComponent } from "../public-pages/job-search/job-search.component";
 import { UploadCvComponent } from "./upload-cv/upload-cv.component";
+import { RoleAuthGuard } from "../shared/auth-guards/role-auth-guard";
 
 const routes: Routes = [
   { path: "", component: DashboardComponent },
 
   { path: "user-profile", component: UserProfileComponent },
-  { path: "post-a-job", component: PostAJobComponent },
-  { path: "edit-a-job/:id", component: PostAJobComponent },
+  { path: "post-a-job", component: PostAJobComponent, canActivate: [RoleAuthGuard]},
+  { path: "edit-a-job/:id", component: PostAJobComponent, canActivate: [RoleAuthGuard]},
   { path: "job-single/:id", component: JobSingleComponent },
   {
     path: "job-search/:keyword/:location/:category",

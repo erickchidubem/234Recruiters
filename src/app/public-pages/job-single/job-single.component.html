@@ -9,12 +9,14 @@
                 <br /><br />
                 <div class="inner-box">
                     <div class="content">
-                        <span class="company-logo"><img src="{{jobDetails.profilePictureURL || 'assets/images/resource/company-logo/3-5.png'}}" alt="company_logo"></span>
+                        <span class="company-logo"><img
+                                src="{{jobDetails.profilePictureURL || 'assets/images/resource/company-logo/3-5.png'}}"
+                                alt="company_logo"></span>
                         <h4>{{jobDetails.jobTitle}}</h4>
                         <ul class="job-info">
                             <!-- <li><span class="icon flaticon-briefcase"></span> {{jobDetails.Segment}}</li> -->
                             <li><span class="icon flaticon-map-locator"></span>{{jobDetails.jobLocation}}</li>
-                            <li><span class="icon flaticon-clock-3"></span> 
+                            <li><span class="icon flaticon-clock-3"></span>
                                 {{jobDetails.createdDate | date:'EEEE, d, MMMM, yyyy'}}</li>
                             <li><span class="icon flaticon-money"></span> {{utils.getCurrency()}}
                                 {{jobDetails.salaryRangeFrom | number:'.2'}} -
@@ -28,8 +30,12 @@
                     </div>
 
                     <div class="btn-box">
-
-                        <a href="#" class="theme-btn btn-style-one">Apply For Job</a>
+                        <ng-container *ngIf="user">
+                            <button class="theme-btn btn-style-one" (click)="openModal(applyForJob)">Apply For Job</button>
+                        </ng-container>
+                        <ng-container *ngIf="!user">
+                            <button class="theme-btn btn-style-one" routerLink="/public-user/login">Apply For Job</button>
+                        </ng-container>
                         <!-- <button class="bookmark-btn"><i class="flaticon-bookmark"></i></button> -->
                     </div>
                 </div>
@@ -112,3 +118,34 @@
     </div>
 </section>
 <!-- End Job Detail Section -->
+
+<ng-template #applyForJob let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="applyForJobForm" (ngSubmit)="saveJobApplication()">
+            <div class="form-group">
+                <label for="coverLetter">Cover Letter</label>
+                <textarea formControlName="coverLetter" class="form-control" rows="5" cols="3" placeholder="Cover letter"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="expectedSalary">Expected Salary <sup class="text-danger">*</sup></label>
+                <input type="text" class="form-control" formControlName="expectedSalary" placeholder="Salary expectation"/>
+            </div>
+            <div class="form-group">
+                <label for="howSoonCanYouResume">How soon can you resume? <sup class="text-danger">*</sup></label>
+                <input type="text" formControlName="howSoonCanYouResume" class="form-control" placeholder="Availability"/>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" [disabled]="applyForJobForm.invalid">Apply</button>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+    </div>
+</ng-template>

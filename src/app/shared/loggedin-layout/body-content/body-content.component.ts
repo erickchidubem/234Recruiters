@@ -11,7 +11,7 @@ import { ApiResponse, Candidate, UserInfo, UserProfile, Employer } from "src/app
   styleUrls: ["./body-content.component.css"],
 })
 export class BodyContentComponent implements OnInit {
-  Employer: string = Employer;
+  Candidate: string = Candidate;
   userInfo: UserInfo;
   name: string;
   traceContact: Boolean = false;

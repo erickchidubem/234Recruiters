@@ -50,8 +50,8 @@
                 <!-- Login/Register -->
                 <div class="btn-box"> 
                     <a routerLink="/public-user/login" class="theme-btn btn-style-six call-modal" *ngIf="!userInfo">Login / Register</a> 
-                    <a routerLink="/access/post-a-job" class="theme-btn btn-style-two">
-                        <span class="btn-title">Job Post</span>
+                    <a routerLink="/access" class="theme-btn btn-style-two" *ngIf="userInfo">
+                        <span class="btn-title">Dashboard</span>
                     </a> 
                 </div>
             </div>
@@ -60,7 +60,7 @@
     <!-- Mobile Header -->
     <div class="mobile-header">
         <div class="logo">
-            <a routerLink="/home"><img src="assets/images/logo.svg" alt="" title=""></a>
+            <a routerLink="/home"><img src="assets/images/_234recruiter.png" alt="" title="" /></a>
         </div>
         <!--Nav Box-->
         <div class="nav-outer clearfix">

@@ -61,6 +61,7 @@ export class HomeComponent implements OnInit {
       let d = <any>data;
       // console.log(d);
       this.categories = d.responseObject;
+      // console.log(this.categories);
     });
 
     this.context.getWithToken("", "Jobs/GetStates").subscribe((data) => {
